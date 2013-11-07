@@ -1,4 +1,4 @@
-=== VCAT EduLabs ===
+=== VCAT EduLabs Posts at Google Maps ===
 Contributors: nida78
 Tags: GeoCoding
 Requires at least: 3.0
