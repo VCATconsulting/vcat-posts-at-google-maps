@@ -21,10 +21,13 @@ So you can show in a very simple way where you gathered some informations, took 
 - The Plugin ships a backend widget for entering the data on a post or page which can even be edited on the QuickEdit screen.
 - There are two shorcodes (1) to embed a large map with all posts/pages as markers and (2) a mini-map with the current one as marker.
 
+
 Planned Features:
+
 - Inidividual choice of pin color per post/page.
 - Drag 'n drop of pins on the backend widget.
 - Further features may be requested on the Plugin page.
+
 
 == Installation ==
 
