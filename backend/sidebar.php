@@ -35,7 +35,7 @@ function get_cached_feed($url)
 
 <div id="vc_sidebar">
     <div id="donate_div">
-    	<a href="http://www.vcat.de/edulabs/donate/" target="_blank" >
+    	<a href="http://www.vcat.de/edulabs/ueber-vcat-edulabs/spenden/" target="_blank" >
     		<img src="<?php echo PLUGIN_PATH; ?>/backend/donate_small.png" alt="Donate" />
     	</a>
     </div>

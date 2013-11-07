@@ -4,7 +4,7 @@ Tags: GeoCoding
 Requires at least: 3.0
 Tested up to: 3.6
 Stable tag: 0.7
-Donate link: http://www.vcat.de/edulabs/ueber-vcat-edulabs/donate/
+Donate link: http://www.vcat.de/edulabs/ueber-vcat-edulabs/spenden/
 License: GPLv2
 
 A GeoCoding Plugin that enables to tag Posts and Pages with GeoCoordinates.
