@@ -1,0 +1,18 @@
+/*** Google Maps ***/
+#map_canvas img {
+	max-width: none;
+}
+
+#map_canvas font {
+	color: #000000;
+}
+
+#map_canvas.align-left {
+	float: left;
+	margin: 0 10px 10px 0;	
+}
+
+#map_canvas.align-right {
+	float: right;
+	margin: 0 0 10px 10px;	
+}

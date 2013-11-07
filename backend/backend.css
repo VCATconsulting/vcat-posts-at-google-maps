@@ -1,0 +1,48 @@
+#wpbody {
+}
+
+#wpbody-content > .wrap {
+	margin-right: 230px;
+}
+
+#icon-vcat-edulabs.icon32 {
+	background-image: url( '../images/favicon-32.png' );
+}
+#vc_sidebar {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+    width: 200px;
+    padding: 10px;
+    background-color: #ececec;
+    box-shadow: 1px -1px 5px #888 inset;
+}
+
+#donate_div img {
+	width: 100px;
+	height: auto;
+}
+
+#edulabs_feed, #vcat_feed {
+	height: 200px;
+	overflow: auto;
+}
+
+#vc_sidebar .feed a {
+	text-decoration: none;
+}
+
+input.regular-text.fail {
+	border: 1px solid #ff0000;
+}
+
+#zoom-slider, #mini-zoom-slider {
+	width: 262px;
+	float: left;
+	margin-top: 6px;
+	margin-right: 10px;
+}
+
+#mini_zoom, #zoom {
+    width: 25px;
+}
