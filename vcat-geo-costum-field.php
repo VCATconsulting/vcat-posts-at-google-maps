@@ -1,22 +1,24 @@
 <?php
-
 /**
  * initializes VCAT's Geo meta box
  */
-function vcat_custom_fields_init()
+function vcat_geo_custom_fields_init()
 {
-    wp_enqueue_style('meta_css', PLUGIN_PATH . '/styles/meta.css');
+    wp_enqueue_style(
+    	'vcat_geo_meta_css',
+    	plugins_url( '/styles/meta.css', __FILE__ )
+	);
  
     foreach (array('post','page') as $type)
     {
-        add_meta_box('vcat_custom_fields_meta', 'VCAT Geo Daten', 'vcat_custom_fields_setup', $type, 'normal', 'high');
+        add_meta_box('vcat_geo_custom_fields_meta', __('VCAT Geo Daten','vcgmapsatposts'), 'vcat_geo_custom_fields_setup', $type, 'normal', 'high');
     }
 } 
 
 /**
  * sets the geo meta box up, gives it's design and if given the current values
  */
-function vcat_custom_fields_setup()
+function vcat_geo_custom_fields_setup()
 {
     global $post;
 	
@@ -25,7 +27,7 @@ function vcat_custom_fields_setup()
 	$post = $current->post;
 	
     // including the actual, seeable meta box
-    include(PLUGIN_FOLDER . '/custom/meta.php');
+    include( plugin_dir_path( __FILE__ ) . 'custom/meta.php' );
 
     // create a custom nonce for submit verification later
     echo '<input type="hidden" name="vcat_custom_fields_nonce" value="' . wp_create_nonce(__FILE__) . '" />';
@@ -36,33 +38,41 @@ function vcat_custom_fields_setup()
  *
  * @param $post_id	the ID of the post to save
  */
-function vcat_custom_fields_save($post_id)
-{
- 	
-    if (!wp_verify_nonce($_POST['vcat_custom_fields_nonce'],__FILE__)) return $post_id;
- 	
-    if ($_POST['post_type'] == 'page')
-    {
-        if (!current_user_can('edit_page', $post_id)) return $post_id;
-    }
-    else
-    {
-        if (!current_user_can('edit_post', $post_id)) return $post_id;
-    }
+function vcat_geo_custom_fields_save( $post_id ) {
+
+    if( !current_user_can( ( $_POST['post_type'] == 'page' ) ? 'edit_page' : 'edit_post', $post_id ) )
+    	return $post_id;
       
-    $new_data = $_POST['_vcat_custom_fields'];
+	$vcat_edit_type = $_POST[ '_vcat_type' ];
+	
+	if( $vcat_edit_type == "custom_fields" ) {
+	    if( !wp_verify_nonce( $_POST[ 'vcat_custom_fields_nonce' ], __FILE__ ) )
+	    	return $post_id;
+	    $new_data = $_POST[ '_vcat_custom_fields' ];
+	} elseif( $vcat_edit_type == "quick_edit" ) {
+	    if ( !wp_verify_nonce( $_POST[ 'vcat_quickedit_field_nonce' ], 'vcat' . $post_id ) )
+	    	return $post_id;
+    	$new_data = $_POST[ '_vcat_quick_edit' ];
+
+		global $post;
+		$post = get_post( $post_id );
+		setup_postdata( $post );
+	} else {
+		return $post_id;
+	}
  
-    vcat_custom_fields_clean($new_data); 
-	 
-	vcat_install_data($new_data);
+    vcat_geo_custom_fields_clean( $new_data ); 
+
+	$result = vcat_geo_install_data( $new_data );
 }
+
 
 /**
  * removes empty, useless strings in the Array
  * 
  * @param &$arr	the array to be cleaned
  */
-function vcat_custom_fields_clean(&$arr)
+function vcat_geo_custom_fields_clean(&$arr)
 {
 	
     if (is_array($arr))
@@ -71,7 +81,7 @@ function vcat_custom_fields_clean(&$arr)
         {
             if (is_array($arr[$i]))
             {
-                vcat_custom_fields_clean($arr[$i]);
+                vcat_geo_custom_fields_clean($arr[$i]);
  
                 if (!count($arr[$i]))
                 {

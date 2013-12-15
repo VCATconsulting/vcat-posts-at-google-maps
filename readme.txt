@@ -59,3 +59,9 @@ Further information how to use the shortcodes and their available options may be
 
 = 0.7 =
 * Initial Realse on wordpress.org
+
+= 1.0 =
+* new filter options for the big map
+* optional dynamic center and zoom at the big map
+* a separated core part of all VCAT EDULABS plugins
+* some backend css bug-fixes

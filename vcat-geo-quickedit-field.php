@@ -6,8 +6,8 @@
  * 
  * @return $columns	the standart columns + 1
  */
-function vcat_add_post_column($columns) {
-    $columns['post_address'] = 'Adresse';
+function vcat_geo_add_post_column($columns) {
+    $columns['post_address'] = __('Adresse','vcgmapsatposts');
     return $columns;
 }
 
@@ -16,16 +16,24 @@ function vcat_add_post_column($columns) {
  * 
  * @param $column_name	the name of the current column		
  */
- function vcat_render_post_columns($column_name) {
+ function vcat_geo_render_post_columns( $column_name ) {
     switch ($column_name) {
-    case 'post_address':
-
-	global $post;    
-
-	if (isset($post->lat)) echo $post->str.", ".$post->plz." ".$post->ort."<br> Latitude.: ".$post->lat." / Longitude.: ".$post->lng;
-    else echo '---';
-
-    break;
+    	case 'post_address':
+			global $post;    
+			
+			/**
+			 * Robin: after a quickedit, he won't get our table data out of $post on his own, so he shall make a new request, if he ain't got data from our Table 
+			 */
+			if ($post->lat==NULL) {
+				$args = array( 'post_type' => array( 'page', 'post' ), 'posts_per_page' => 1, 'p' => $post->ID );
+	   			$current = new WP_Query( $args );
+				$post=$current->post;
+			}
+			
+			if( isset( $post->lat ) )
+				echo $post->str . ", " . $post->plz . " " . $post->ort . __("<br> Latitude.: ",'vcgmapsatposts') . $post->lat . __(" / Longitude.: ",'vcgmapsatposts') . $post->lng;
+		default:
+			echo '';
     }	
 }  
 
@@ -34,10 +42,10 @@ function vcat_add_post_column($columns) {
  * 
  * @param $column_name	the name of the current column		
  */
-function vcat_add_quick_edit($column_name) {
+function vcat_geo_add_quick_edit($column_name) {
     if ($column_name != 'post_address') return;
 	
-	include(PLUGIN_FOLDER . '/quickedit/meta.php');
+    include( plugin_dir_path( __FILE__ ) . 'quickedit/meta.php' );
 }
  
 /**
@@ -45,36 +53,41 @@ function vcat_add_quick_edit($column_name) {
  * 
  * @param $post_id	the ID of the post to save
  */
-function vcat_quick_edit_save($post_id) {
+ 
+/** NiDa: really necessary?
+  
+function vcat_geo_quick_edit_save( $post_id ) {
+
+	error_log( 'save post (' . $post_id . ') by quick_edit' );
 		
     if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
         return $post_id;   
 	
-    if (!wp_verify_nonce($_POST['vcat_quickedit_field_nonce'], 'vcat'.$post_id)) return $post_id;
+    if ( !wp_verify_nonce( $_POST[ 'vcat_quickedit_field_nonce' ], 'vcat' . $post_id ) ) return $post_id;
 	
-    if ( 'page' == $_POST['post_type'] ) 
-    {
+    if ( 'page' == $_POST['post_type'] ) {
         if ( !current_user_can( 'edit_page', $post_id ) ) return $post_id;
-    } 
-    else 
-    {
+    } else {
         if ( !current_user_can( 'edit_post', $post_id ) ) return $post_id;
     }  
-    
+
     $new_data = $_POST['_vcat_quick_edit'];
 	
-	vcat_custom_fields_clean($new_data); 
+	vcat_geo_custom_fields_clean( $new_data ); 
 	
-    vcat_install_data($new_data);
-    
+    vcat_geo_install_data( $post_id, $new_data );
 } 
+
+**/
+ 
  
 /**
  * puts the insert_data() function in to the footer for the edit-screens for post and pages
  */ 
-function vcat_quick_edit_javascript() {
+function vcat_geo_quick_edit_javascript() {
     global $current_screen;
-    if ((($current_screen->id != 'edit-post')&&($current_screen->id != 'edit-page')) || (($current_screen->post_type != 'post')&&($current_screen->post_type != 'page'))) return
+    if( ( ( $current_screen->id != 'edit-post') && ( $current_screen->id != 'edit-page') )
+     || ( ( $current_screen->post_type != 'post') && ( $current_screen->post_type != 'page' ) ) ) return;
 
     ?>
     <script type="text/javascript">
@@ -110,10 +123,20 @@ function vcat_quick_edit_javascript() {
  * @param $actions	the current action list for posts/pages(different hooks)
  * @param $post		the current post data for the calling post
  */
-function vcat_expand_quick_edit_link($actions, $post) {
+function vcat_geo_expand_quick_edit_link($actions, $post) {
     global $current_screen;
 
-	$nonce = wp_create_nonce( 'vcat'.$post->ID);
+
+	/**
+	 * Robin: after a quickedit, he won't get our table data out of $post on his own, so he shall make a new request, if he ain't got data from our Table 
+	 */
+	if ($post->lat==NULL) {
+		$args = array( 'post_type' => array( 'page', 'post' ), 'posts_per_page' => 1, 'p' => $post->ID );
+		$current = new WP_Query( $args );
+		$post=$current->post;
+	}
+
+	$nonce = wp_create_nonce( 'vcat'.$post->ID );
 	$str = $post->str;
 	$plz = $post->plz;
 	$ort = $post->ort;
