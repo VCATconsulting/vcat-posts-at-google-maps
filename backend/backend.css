@@ -10,5 +10,6 @@ input.regular-text.fail {
 }
 
 #mini_zoom, #zoom {
-    width: 25px;
+	text-align: center;
+    width: 30px;
 }

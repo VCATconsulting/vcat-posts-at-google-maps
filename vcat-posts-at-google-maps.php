@@ -3,7 +3,7 @@
 Plugin Name: VCAT EDULABS Posts At Google Maps
 Plugin URI: http://www.vcat.de/edulabs/projekte/wordpress/geo-plugin/
 Description: Dieses Plugin zeigt die Lage der Posts und Pages in einer Google Map an. Die Lage wird durch die Latitude und Longitude des Punktes bestimmt.  Die Map wird über den Shortcode [vcat-dpagm] auf eine beliebige Seite eingebunden. (height & width im shortcode erlauben es die Größe anzupassen)  
-Version: 1.0
+Version: 1.1
 Author: VCAT Consulting GmbH (Nico Danneberg, Robin Kramer, Melanie Sommer)
 Author URI: http://www.vcat.de
 */
