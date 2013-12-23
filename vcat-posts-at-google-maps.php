@@ -33,7 +33,7 @@ add_filter( 'vcat_plugins_list', 'vcat_geo_add_plugins_list_info' );		// adds an
 add_action( 'wp_enqueue_scripts', 'vcat_geo_enqueue_google_maps_scripts' );			// is the proper hook to use when enqueuing items that are meant to appear on the front end, it is used for enqueuing both: scripts & styles 
 
 add_shortcode( 'vcat-dpagm', 'vcat_geo_display_posts_at_google_maps' );
-add_shortcode( 'vcat-dpagm-mini', 'vcat_display_posts_at_google_maps_mini' );
+add_shortcode( 'vcat-dpagm-mini', 'vcat_geo_display_posts_at_google_maps_mini' );
 
 add_action('add_meta_boxes','vcat_geo_custom_fields_init');						// triggers when the edit screen is loading
 
