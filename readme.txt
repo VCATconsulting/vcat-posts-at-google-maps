@@ -3,7 +3,7 @@ Contributors: VCATconsulting, nida78
 Tags: EDULABS, VCAT, Geo-Coding, Geo-Location, Google-Maps, Shortcode
 Requires at least: 3.0
 Tested up to: 3.8
-Stable tag: 1.1
+Stable tag: 1.2
 Donate link: http://www.vcat.de/edulabs/ueber-vcat-edulabs/spenden/
 License: GPLv2
 
@@ -56,6 +56,9 @@ Further information how to use the shortcodes and their available options may be
 
 
 == Changelog ==
+
+= 1.2 =
+* micro-bug fix
 
 = 1.1 =
 * some backend css bug-fixes due to WP 3.8
