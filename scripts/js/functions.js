@@ -7,8 +7,9 @@ var map;
  * @param lat	latitude value for the map center
  * @param lng	longitude value for the map center
  * @param zm	zoom value for the map
+ * @param pid	postid for the minimaps
  */
-function vcatInitialize(lat, lng, zm) {	
+function vcatInitialize(lat, lng, zm, pid) {	
 	geocoder = new google.maps.Geocoder();
 	var latlng = new google.maps.LatLng(lat,lng);
 	var mapOptions = {
@@ -16,7 +17,10 @@ function vcatInitialize(lat, lng, zm) {
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
-	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		
+	var name = "map_canvas" + pid;	
+	
+	map = new google.maps.Map(document.getElementById(name), mapOptions);
 }
 
 
@@ -43,7 +47,12 @@ function vcatAddMarker( lat, lng, address, title, link, image, target ) {
 	var infowindow = new google.maps.InfoWindow({ 
 		content: '<a href="' + link + '" target="_' + target + '">' + title + '</a><br /><small><font color="#000000">' + address + '</font></small>', 
 	});
-	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map,marker);
-	});
+	google.maps.event.addListener(marker, 'click', (function (m) {
+	    return function() {
+	        infowindow.open(m,marker);
+	    };
+	}(map)));
+	
+	
+	
 }

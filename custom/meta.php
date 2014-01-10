@@ -6,7 +6,7 @@
     
     <div class="wrapper">
 	    <div class="street">
-   		 	<span class="text"><?php _e('Stra&szlig;e:','vcgmapsatposts')?></span>
+   		 	<span class="text"><?php _e('Stra&szlig;e','vcgmapsatposts')?></span>
    		 	<span class="inputField">
 	    		<input id="str" type="text" name="_vcat_custom_fields[str]" value="<?php if(!empty($post->str)) echo $post->str; ?>"/>
 	    	</span>
@@ -39,6 +39,28 @@
 	    		<input readonly type="text" name="longitude" value="<?php if(!empty($post->lng)) echo $post->lng; ?>"/>
 	    	</span>
 	    </div>
+	    
+	    <div class="color">
+	    	<span class="text"><?php _e('Pin-Farbe','vcgmapsatposts')?>:</span>
+	    	<span class="inputField">
+    			<select name='_vcat_custom_fields[color]'>
+				  <option <?php _e(" value=''>Standard",'vcgmapsatposts')?></option>
+				  <option <?php if ($post->color=='blue')echo "selected"; _e(" value='blue'>Blau",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='red') echo "selected"; _e(" value='red'>Rot",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='yellow')echo "selected"; _e(" value='yellow'>Gelb",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='green')echo "selected"; _e(" value='green'>Grün",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='orange')echo "selected"; _e(" value='orange'>Orange",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='purple')echo "selected"; _e(" value='purple'>Lila",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='magenta')echo "selected"; _e(" value='magenta'>Magenta",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='cyan')echo "selected"; _e(" value='cyan'>Cyan",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='pink')echo "selected"; _e(" value='pink'>Rosa",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='brown')echo "selected"; _e(" value='brown'>Braun",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='beige')echo "selected"; _e(" value='beige'>Beige",'vcgmapsatposts')?> </option>
+			      <option <?php if ($post->color=='gray')echo "selected"; _e(" value='gray'>Grau",'vcgmapsatposts')?> </option>
+			    </select>
+	    	</span>
+	    </div>
+	    
     </div>
 	<div class="save_button">
     	<input type="submit" value=<?php _e("Speichern",'vcgmapsatposts')?> />

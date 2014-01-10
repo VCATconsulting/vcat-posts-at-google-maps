@@ -2,24 +2,48 @@
 # Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #  <wordpress.dziamski.edu.intern.vcat.de@www05.dev.intern.vcat.de>, 2013.
-#
+# 
 #: vcat-geo-costum-field.php:93 vcat-geo-quickedit-field.php:36
-#: vcat-posts-at-google-maps.php:247 vcat-posts-at-google-maps.php:248
-#: vcat-posts-at-google-maps.php:280 vcat-posts-at-google-maps.php:299
-#: vcat-settings-menu.php:121 vcat-settings-menu.php:137
-#: vcat-settings-menu.php:153 vcat-settings-menu.php:157
-#: vcat-settings-menu.php:176 vcat-settings-menu.php:192
-#: vcat-settings-menu.php:193 vcat-settings-menu.php:203
-#: vcat-settings-menu.php:204 vcat-settings-menu.php:322
-#: vcat-settings-menu.php:338 vcat-settings-menu.php:372
-#: vcat-settings-menu.php:373 vcat-settings-menu.php:383
-#: vcat-settings-menu.php:384 core/sidebar.php:7 core/sidebar.php:9
+#: vcat-posts-at-google-maps.php:280 vcat-posts-at-google-maps.php:281
+#: vcat-posts-at-google-maps.php:333 vcat-posts-at-google-maps.php:357
+#: vcat-settings-menu.php:125 vcat-settings-menu.php:141
+#: vcat-settings-menu.php:157 vcat-settings-menu.php:161
+#: vcat-settings-menu.php:180 vcat-settings-menu.php:196
+#: vcat-settings-menu.php:197 vcat-settings-menu.php:207
+#: vcat-settings-menu.php:208 vcat-settings-menu.php:224
+#: vcat-settings-menu.php:225 vcat-settings-menu.php:226
+#: vcat-settings-menu.php:227 vcat-settings-menu.php:228
+#: vcat-settings-menu.php:229 vcat-settings-menu.php:230
+#: vcat-settings-menu.php:231 vcat-settings-menu.php:232
+#: vcat-settings-menu.php:233 vcat-settings-menu.php:234
+#: vcat-settings-menu.php:235 vcat-settings-menu.php:243
+#: vcat-settings-menu.php:244 vcat-settings-menu.php:245
+#: vcat-settings-menu.php:246 vcat-settings-menu.php:247
+#: vcat-settings-menu.php:248 vcat-settings-menu.php:249
+#: vcat-settings-menu.php:250 vcat-settings-menu.php:251
+#: vcat-settings-menu.php:252 vcat-settings-menu.php:253
+#: vcat-settings-menu.php:254 vcat-settings-menu.php:393
+#: vcat-settings-menu.php:409 vcat-settings-menu.php:443
+#: vcat-settings-menu.php:444 vcat-settings-menu.php:454
+#: vcat-settings-menu.php:455 vcat-settings-menu.php:471
+#: vcat-settings-menu.php:472 vcat-settings-menu.php:473
+#: vcat-settings-menu.php:474 vcat-settings-menu.php:475
+#: vcat-settings-menu.php:476 vcat-settings-menu.php:477
+#: vcat-settings-menu.php:478 vcat-settings-menu.php:479
+#: vcat-settings-menu.php:480 vcat-settings-menu.php:481
+#: vcat-settings-menu.php:482 vcat-settings-menu.php:490
+#: vcat-settings-menu.php:491 vcat-settings-menu.php:492
+#: vcat-settings-menu.php:493 vcat-settings-menu.php:494
+#: vcat-settings-menu.php:495 vcat-settings-menu.php:496
+#: vcat-settings-menu.php:497 vcat-settings-menu.php:498
+#: vcat-settings-menu.php:499 vcat-settings-menu.php:500
+#: vcat-settings-menu.php:501 core/sidebar.php:7 core/sidebar.php:9
 #: core/sidebar.php:28 core/vcat-core.php:71
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-13 16:50+0100\n"
+"POT-Creation-Date: 2014-01-10 09:40+0100\n"
 "PO-Revision-Date: 2013-10-29 10:27+0100\n"
 "Last-Translator:  <wordpress.dziamski.edu.intern.vcat.de@www05.dev.intern."
 "vcat.de>\n"
@@ -40,17 +64,17 @@ msgid "/styles/meta.css"
 msgstr ""
 
 #: vcat-geo-costum-field.php:12 vcat-geo-costum-field.php:25
-#: vcat-geo-database.php:46 vcat-geo-quickedit-field.php:28
-#: vcat-geo-quickedit-field.php:90 vcat-geo-quickedit-field.php:134
-#: vcat-posts-at-google-maps.php:269
+#: vcat-geo-database.php:61 vcat-geo-quickedit-field.php:28
+#: vcat-geo-quickedit-field.php:90 vcat-geo-quickedit-field.php:145
+#: vcat-posts-at-google-maps.php:322
 msgid "post"
 msgstr ""
 
 #: vcat-geo-costum-field.php:12 vcat-geo-costum-field.php:25
-#: vcat-geo-costum-field.php:43 vcat-geo-database.php:46
+#: vcat-geo-costum-field.php:43 vcat-geo-database.php:61
 #: vcat-geo-quickedit-field.php:28 vcat-geo-quickedit-field.php:90
-#: vcat-geo-quickedit-field.php:134 vcat-posts-at-google-maps.php:226
-#: vcat-posts-at-google-maps.php:269 vcat-posts-at-google-maps.php:293
+#: vcat-geo-quickedit-field.php:145 vcat-posts-at-google-maps.php:248
+#: vcat-posts-at-google-maps.php:322 vcat-posts-at-google-maps.php:349
 msgid "page"
 msgstr ""
 
@@ -65,24 +89,58 @@ msgstr ""
 #: vcat-geo-costum-field.php:14 vcat-geo-quickedit-field.php:10
 #: vcat-geo-quickedit-field.php:34 vcat-posts-at-google-maps.php:17
 #: vcat-settings-menu.php:11 vcat-settings-menu.php:37
-#: vcat-settings-menu.php:58 vcat-settings-menu.php:82
-#: vcat-settings-menu.php:84 vcat-settings-menu.php:85
-#: vcat-settings-menu.php:86 vcat-settings-menu.php:87
-#: vcat-settings-menu.php:88 vcat-settings-menu.php:89
-#: vcat-settings-menu.php:97 vcat-settings-menu.php:99
-#: vcat-settings-menu.php:100 vcat-settings-menu.php:101
+#: vcat-settings-menu.php:58 vcat-settings-menu.php:83
+#: vcat-settings-menu.php:85 vcat-settings-menu.php:86
+#: vcat-settings-menu.php:87 vcat-settings-menu.php:88
+#: vcat-settings-menu.php:89 vcat-settings-menu.php:90
+#: vcat-settings-menu.php:91 vcat-settings-menu.php:100
 #: vcat-settings-menu.php:102 vcat-settings-menu.php:103
-#: vcat-settings-menu.php:111 vcat-settings-menu.php:122
-#: vcat-settings-menu.php:138 vcat-settings-menu.php:156
-#: vcat-settings-menu.php:157 vcat-settings-menu.php:158
-#: vcat-settings-menu.php:193 vcat-settings-menu.php:204
-#: vcat-settings-menu.php:312 vcat-settings-menu.php:323
-#: vcat-settings-menu.php:339 vcat-settings-menu.php:373
-#: vcat-settings-menu.php:384 core/vcat-core.php:43 core/vcat-core.php:53
-#: custom/meta.php:5 custom/meta.php:9 custom/meta.php:16 custom/meta.php:23
-#: custom/meta.php:30 custom/meta.php:37 custom/meta.php:44 custom/meta.php:45
+#: vcat-settings-menu.php:104 vcat-settings-menu.php:105
+#: vcat-settings-menu.php:106 vcat-settings-menu.php:107
+#: vcat-settings-menu.php:115 vcat-settings-menu.php:126
+#: vcat-settings-menu.php:142 vcat-settings-menu.php:160
+#: vcat-settings-menu.php:161 vcat-settings-menu.php:162
+#: vcat-settings-menu.php:197 vcat-settings-menu.php:208
+#: vcat-settings-menu.php:224 vcat-settings-menu.php:225
+#: vcat-settings-menu.php:226 vcat-settings-menu.php:227
+#: vcat-settings-menu.php:228 vcat-settings-menu.php:229
+#: vcat-settings-menu.php:230 vcat-settings-menu.php:231
+#: vcat-settings-menu.php:232 vcat-settings-menu.php:233
+#: vcat-settings-menu.php:234 vcat-settings-menu.php:235
+#: vcat-settings-menu.php:243 vcat-settings-menu.php:244
+#: vcat-settings-menu.php:245 vcat-settings-menu.php:246
+#: vcat-settings-menu.php:247 vcat-settings-menu.php:248
+#: vcat-settings-menu.php:249 vcat-settings-menu.php:250
+#: vcat-settings-menu.php:251 vcat-settings-menu.php:252
+#: vcat-settings-menu.php:253 vcat-settings-menu.php:254
+#: vcat-settings-menu.php:257 vcat-settings-menu.php:383
+#: vcat-settings-menu.php:394 vcat-settings-menu.php:410
+#: vcat-settings-menu.php:444 vcat-settings-menu.php:455
+#: vcat-settings-menu.php:471 vcat-settings-menu.php:472
+#: vcat-settings-menu.php:473 vcat-settings-menu.php:474
+#: vcat-settings-menu.php:475 vcat-settings-menu.php:476
+#: vcat-settings-menu.php:477 vcat-settings-menu.php:478
+#: vcat-settings-menu.php:479 vcat-settings-menu.php:480
+#: vcat-settings-menu.php:481 vcat-settings-menu.php:482
+#: vcat-settings-menu.php:490 vcat-settings-menu.php:491
+#: vcat-settings-menu.php:492 vcat-settings-menu.php:493
+#: vcat-settings-menu.php:494 vcat-settings-menu.php:495
+#: vcat-settings-menu.php:496 vcat-settings-menu.php:497
+#: vcat-settings-menu.php:498 vcat-settings-menu.php:499
+#: vcat-settings-menu.php:500 vcat-settings-menu.php:501
+#: vcat-settings-menu.php:504 core/sidebar.php:53 core/vcat-core.php:43
+#: core/vcat-core.php:53 custom/meta.php:5 custom/meta.php:9
+#: custom/meta.php:16 custom/meta.php:23 custom/meta.php:30 custom/meta.php:37
+#: custom/meta.php:44 custom/meta.php:47 custom/meta.php:48 custom/meta.php:49
+#: custom/meta.php:50 custom/meta.php:51 custom/meta.php:52 custom/meta.php:53
+#: custom/meta.php:54 custom/meta.php:55 custom/meta.php:56 custom/meta.php:57
+#: custom/meta.php:58 custom/meta.php:59 custom/meta.php:66 custom/meta.php:67
 #: quickedit/meta.php:9 quickedit/meta.php:12 quickedit/meta.php:19
-#: quickedit/meta.php:26
+#: quickedit/meta.php:26 quickedit/meta.php:33 quickedit/meta.php:36
+#: quickedit/meta.php:37 quickedit/meta.php:38 quickedit/meta.php:39
+#: quickedit/meta.php:40 quickedit/meta.php:41 quickedit/meta.php:42
+#: quickedit/meta.php:43 quickedit/meta.php:44 quickedit/meta.php:45
+#: quickedit/meta.php:46 quickedit/meta.php:47 quickedit/meta.php:48
 msgid "vcgmapsatposts"
 msgstr ""
 
@@ -99,21 +157,21 @@ msgid "high"
 msgstr ""
 
 #: vcat-geo-costum-field.php:25 vcat-geo-costum-field.php:43
-#: vcat-geo-database.php:46 vcat-geo-quickedit-field.php:28
-#: vcat-geo-quickedit-field.php:134 vcat-posts-at-google-maps.php:94
-#: vcat-posts-at-google-maps.php:269
+#: vcat-geo-database.php:61 vcat-geo-quickedit-field.php:28
+#: vcat-geo-quickedit-field.php:145 vcat-posts-at-google-maps.php:104
+#: vcat-posts-at-google-maps.php:322
 msgid "post_type"
 msgstr ""
 
-#: vcat-geo-costum-field.php:25 vcat-geo-database.php:46
-#: vcat-geo-quickedit-field.php:28 vcat-geo-quickedit-field.php:134
-#: vcat-posts-at-google-maps.php:269
+#: vcat-geo-costum-field.php:25 vcat-geo-database.php:61
+#: vcat-geo-quickedit-field.php:28 vcat-geo-quickedit-field.php:145
+#: vcat-posts-at-google-maps.php:322
 msgid "posts_per_page"
 msgstr ""
 
-#: vcat-geo-costum-field.php:25 vcat-geo-database.php:46
-#: vcat-geo-quickedit-field.php:28 vcat-geo-quickedit-field.php:134
-#: vcat-posts-at-google-maps.php:92
+#: vcat-geo-costum-field.php:25 vcat-geo-database.php:61
+#: vcat-geo-quickedit-field.php:28 vcat-geo-quickedit-field.php:145
+#: vcat-posts-at-google-maps.php:102
 msgid "p"
 msgstr ""
 
@@ -162,7 +220,7 @@ msgstr ""
 msgid "vcat_quickedit_field_nonce"
 msgstr ""
 
-#: vcat-geo-costum-field.php:53 vcat-geo-quickedit-field.php:139
+#: vcat-geo-costum-field.php:53 vcat-geo-quickedit-field.php:150
 msgid "vcat"
 msgstr ""
 
@@ -174,62 +232,62 @@ msgstr ""
 msgid "wp_vcat_geo_plugin"
 msgstr ""
 
-#: vcat-geo-database.php:13
-msgid "1.0"
+#: vcat-geo-database.php:4
+msgid "1.1"
 msgstr ""
 
-#: vcat-geo-database.php:26
-msgid "wp-admin/includes/upgrade.php"
-msgstr ""
-
-#: vcat-geo-database.php:29
+#: vcat-geo-database.php:14 vcat-geo-database.php:44
 msgid "vcat_db_version"
 msgstr ""
 
-#: vcat-geo-database.php:42 vcat-geo-database.php:96
+#: vcat-geo-database.php:41
+msgid "wp-admin/includes/upgrade.php"
+msgstr ""
+
+#: vcat-geo-database.php:57 vcat-geo-database.php:111
 msgid "wp-config.php"
 msgstr ""
 
-#: vcat-geo-database.php:51 vcat-posts-at-google-maps.php:258
-#: vcat-settings-menu.php:248
+#: vcat-geo-database.php:66 vcat-posts-at-google-maps.php:167
+#: vcat-posts-at-google-maps.php:291 vcat-settings-menu.php:301
 msgid "lat"
 msgstr ""
 
-#: vcat-geo-database.php:52 vcat-posts-at-google-maps.php:258
-#: vcat-settings-menu.php:249
+#: vcat-geo-database.php:67 vcat-posts-at-google-maps.php:168
+#: vcat-posts-at-google-maps.php:291 vcat-settings-menu.php:302
 msgid "lng"
 msgstr ""
 
-#: vcat-geo-database.php:53 vcat-geo-database.php:60
+#: vcat-geo-database.php:68 vcat-geo-database.php:75
 msgid "str"
 msgstr "str"
 
-#: vcat-geo-database.php:54 vcat-geo-database.php:60
+#: vcat-geo-database.php:69 vcat-geo-database.php:74 vcat-geo-database.php:75
 msgid "plz"
 msgstr "plz"
 
-#: vcat-geo-database.php:55 vcat-geo-database.php:60
+#: vcat-geo-database.php:70 vcat-geo-database.php:74 vcat-geo-database.php:75
 msgid "ort"
 msgstr "ort"
 
-#: vcat-geo-database.php:60 vcat-geo-quickedit-field.php:34
-#: vcat-posts-at-google-maps.php:225 vcat-posts-at-google-maps.php:289
+#: vcat-geo-database.php:75 vcat-geo-quickedit-field.php:34
+#: vcat-posts-at-google-maps.php:243 vcat-posts-at-google-maps.php:342
 msgid " "
 msgstr ""
 
-#: vcat-geo-database.php:73 vcat-geo-database.php:83 vcat-geo-database.php:98
+#: vcat-geo-database.php:88 vcat-geo-database.php:98 vcat-geo-database.php:113
 msgid "post_id"
 msgstr ""
 
-#: vcat-geo-database.php:73 vcat-geo-database.php:83
+#: vcat-geo-database.php:88 vcat-geo-database.php:98
 msgid "revision"
 msgstr ""
 
-#: vcat-geo-database.php:112
+#: vcat-geo-database.php:127
 msgid "join"
 msgstr ""
 
-#: vcat-geo-database.php:115
+#: vcat-geo-database.php:130
 msgid "fields"
 msgstr ""
 
@@ -242,9 +300,9 @@ msgstr ""
 msgid "Adresse"
 msgstr "Adresse"
 
-#: vcat-geo-quickedit-field.php:34 vcat-posts-at-google-maps.php:167
-#: vcat-posts-at-google-maps.php:232 vcat-posts-at-google-maps.php:233
-#: vcat-posts-at-google-maps.php:300
+#: vcat-geo-quickedit-field.php:34 vcat-posts-at-google-maps.php:184
+#: vcat-posts-at-google-maps.php:265 vcat-posts-at-google-maps.php:266
+#: vcat-posts-at-google-maps.php:358
 msgid ", "
 msgstr ""
 
@@ -268,29 +326,29 @@ msgstr ""
 msgid "edit-page"
 msgstr ""
 
-#: vcat-geo-quickedit-field.php:144 vcat-geo-quickedit-field.php:145
-#: vcat-geo-quickedit-field.php:146 vcat-geo-quickedit-field.php:147
-#: vcat-geo-quickedit-field.php:148
+#: vcat-geo-quickedit-field.php:156 vcat-geo-quickedit-field.php:157
+#: vcat-geo-quickedit-field.php:158 vcat-geo-quickedit-field.php:159
+#: vcat-geo-quickedit-field.php:160
 msgid "inline hide-if-no-js"
 msgstr ""
 
-#: vcat-geo-quickedit-field.php:144
+#: vcat-geo-quickedit-field.php:156
 msgid "<a href=\"#\" class=\"editinline\" title=\""
 msgstr ""
 
-#: vcat-geo-quickedit-field.php:145
+#: vcat-geo-quickedit-field.php:157
 msgid "Edit this item inline"
 msgstr ""
 
-#: vcat-geo-quickedit-field.php:145
+#: vcat-geo-quickedit-field.php:157
 msgid "\" "
 msgstr ""
 
-#: vcat-geo-quickedit-field.php:147
+#: vcat-geo-quickedit-field.php:159
 msgid "Quick&nbsp;Edit"
 msgstr ""
 
-#: vcat-geo-quickedit-field.php:148
+#: vcat-geo-quickedit-field.php:160
 msgid "</a>"
 msgstr ""
 
@@ -365,7 +423,7 @@ msgid "vcat-dpagm-mini"
 msgstr ""
 
 #: vcat-posts-at-google-maps.php:36
-msgid "vcat_display_posts_at_google_maps_mini"
+msgid "vcat_geo_display_posts_at_google_maps_mini"
 msgstr ""
 
 #: vcat-posts-at-google-maps.php:38
@@ -446,393 +504,458 @@ msgstr ""
 msgid "page_row_actions"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:59
+#: vcat-posts-at-google-maps.php:60
+msgid "init"
+msgstr ""
+
+#: vcat-posts-at-google-maps.php:60
 #, fuzzy
-msgid "vcat_geo_db_install"
+msgid "vcat_geo_db_version_checker"
 msgstr "vcat_geo_mini"
 
-#: vcat-posts-at-google-maps.php:61
+#: vcat-posts-at-google-maps.php:63
 msgid "posts_clauses"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:61
+#: vcat-posts-at-google-maps.php:63
 msgid "vcat_geo_posts_clauses_filter"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:66 vcat-posts-at-google-maps.php:80
-#: vcat-posts-at-google-maps.php:137 vcat-posts-at-google-maps.php:146
-#: vcat-posts-at-google-maps.php:204 vcat-posts-at-google-maps.php:212
-#: vcat-settings-menu.php:119 vcat-settings-menu.php:121
-#: vcat-settings-menu.php:212 vcat-settings-menu.php:214
-#: vcat-settings-menu.php:215 vcat-settings-menu.php:216
-#: vcat-settings-menu.php:320 vcat-settings-menu.php:322
-#: vcat-settings-menu.php:392 vcat-settings-menu.php:394
-#: vcat-settings-menu.php:395 vcat-settings-menu.php:396
+#: vcat-posts-at-google-maps.php:68 vcat-posts-at-google-maps.php:86
+#: vcat-posts-at-google-maps.php:147 vcat-posts-at-google-maps.php:156
+#: vcat-posts-at-google-maps.php:221 vcat-posts-at-google-maps.php:230
+#: vcat-settings-menu.php:123 vcat-settings-menu.php:125
+#: vcat-settings-menu.php:265 vcat-settings-menu.php:267
+#: vcat-settings-menu.php:268 vcat-settings-menu.php:269
+#: vcat-settings-menu.php:391 vcat-settings-menu.php:393
+#: vcat-settings-menu.php:513 vcat-settings-menu.php:515
+#: vcat-settings-menu.php:516 vcat-settings-menu.php:517
 msgid "width"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:66
+#: vcat-posts-at-google-maps.php:68
 msgid "100%"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:67 vcat-posts-at-google-maps.php:81
-#: vcat-posts-at-google-maps.php:138 vcat-posts-at-google-maps.php:147
-#: vcat-posts-at-google-maps.php:205 vcat-posts-at-google-maps.php:213
-#: vcat-settings-menu.php:135 vcat-settings-menu.php:137
-#: vcat-settings-menu.php:226 vcat-settings-menu.php:228
-#: vcat-settings-menu.php:229 vcat-settings-menu.php:230
-#: vcat-settings-menu.php:336 vcat-settings-menu.php:338
-#: vcat-settings-menu.php:406 vcat-settings-menu.php:408
-#: vcat-settings-menu.php:409 vcat-settings-menu.php:410
+#: vcat-posts-at-google-maps.php:69 vcat-posts-at-google-maps.php:87
+#: vcat-posts-at-google-maps.php:148 vcat-posts-at-google-maps.php:157
+#: vcat-posts-at-google-maps.php:222 vcat-posts-at-google-maps.php:231
+#: vcat-settings-menu.php:139 vcat-settings-menu.php:141
+#: vcat-settings-menu.php:279 vcat-settings-menu.php:281
+#: vcat-settings-menu.php:282 vcat-settings-menu.php:283
+#: vcat-settings-menu.php:407 vcat-settings-menu.php:409
+#: vcat-settings-menu.php:527 vcat-settings-menu.php:529
+#: vcat-settings-menu.php:530 vcat-settings-menu.php:531
 msgid "height"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:67
+#: vcat-posts-at-google-maps.php:69
 msgid "500px"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:68 vcat-posts-at-google-maps.php:69
-#: vcat-posts-at-google-maps.php:98 vcat-posts-at-google-maps.php:139
-#: vcat-posts-at-google-maps.php:277 vcat-posts-at-google-maps.php:302
-#: vcat-posts-at-google-maps.php:309 vcat-settings-menu.php:151
-#: vcat-settings-menu.php:153 vcat-settings-menu.php:172
-#: vcat-settings-menu.php:240 vcat-settings-menu.php:242
-#: vcat-settings-menu.php:243 vcat-settings-menu.php:244
-#: vcat-settings-menu.php:246 vcat-settings-menu.php:247
+#: vcat-posts-at-google-maps.php:70 vcat-posts-at-google-maps.php:71
+#: vcat-posts-at-google-maps.php:108 vcat-posts-at-google-maps.php:149
+#: vcat-posts-at-google-maps.php:165 vcat-posts-at-google-maps.php:166
+#: vcat-posts-at-google-maps.php:169 vcat-posts-at-google-maps.php:330
+#: vcat-posts-at-google-maps.php:360 vcat-posts-at-google-maps.php:367
+#: vcat-settings-menu.php:155 vcat-settings-menu.php:157
+#: vcat-settings-menu.php:176 vcat-settings-menu.php:293
+#: vcat-settings-menu.php:295 vcat-settings-menu.php:296
+#: vcat-settings-menu.php:297 vcat-settings-menu.php:299
+#: vcat-settings-menu.php:300
 msgid "center"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:69
+#: vcat-posts-at-google-maps.php:71
 msgid "August-Bebel-Str. 26-53 MedienHaus 14482 Potsdam"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:70 vcat-posts-at-google-maps.php:148
-#: vcat-settings-menu.php:248 vcat-settings-menu.php:251
+#: vcat-posts-at-google-maps.php:72 vcat-posts-at-google-maps.php:158
+#: vcat-settings-menu.php:301 vcat-settings-menu.php:304
 msgid "center_lat"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:70
+#: vcat-posts-at-google-maps.php:72
 msgid "52.388119"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:71 vcat-posts-at-google-maps.php:149
-#: vcat-settings-menu.php:249 vcat-settings-menu.php:252
+#: vcat-posts-at-google-maps.php:73 vcat-posts-at-google-maps.php:159
+#: vcat-settings-menu.php:302 vcat-settings-menu.php:305
 msgid "center_lng"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:71
+#: vcat-posts-at-google-maps.php:73
 msgid "13.119443"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:72 vcat-posts-at-google-maps.php:158
-#: vcat-posts-at-google-maps.php:160 vcat-posts-at-google-maps.php:277
-#: vcat-posts-at-google-maps.php:302 vcat-posts-at-google-maps.php:309
-#: vcat-settings-menu.php:153 vcat-settings-menu.php:157
-#: vcat-settings-menu.php:176 vcat-settings-menu.php:255
-#: vcat-settings-menu.php:256 vcat-settings-menu.php:258
+#: vcat-posts-at-google-maps.php:74 vcat-posts-at-google-maps.php:165
+#: vcat-posts-at-google-maps.php:175 vcat-posts-at-google-maps.php:177
+#: vcat-posts-at-google-maps.php:330 vcat-posts-at-google-maps.php:360
+#: vcat-posts-at-google-maps.php:367 vcat-settings-menu.php:157
+#: vcat-settings-menu.php:161 vcat-settings-menu.php:180
+#: vcat-settings-menu.php:308 vcat-settings-menu.php:309
+#: vcat-settings-menu.php:311
 msgid "dynamic"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:72 vcat-settings-menu.php:258
+#: vcat-posts-at-google-maps.php:74 vcat-settings-menu.php:311
 msgid "FALSE"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:74 vcat-posts-at-google-maps.php:82
-#: vcat-posts-at-google-maps.php:140 vcat-posts-at-google-maps.php:151
-#: vcat-posts-at-google-maps.php:206 vcat-posts-at-google-maps.php:215
-#: vcat-settings-menu.php:171 vcat-settings-menu.php:176
-#: vcat-settings-menu.php:269 vcat-settings-menu.php:271
-#: vcat-settings-menu.php:272 vcat-settings-menu.php:273
-#: vcat-settings-menu.php:352 vcat-settings-menu.php:356
-#: vcat-settings-menu.php:420 vcat-settings-menu.php:422
-#: vcat-settings-menu.php:423 vcat-settings-menu.php:424
+#: vcat-posts-at-google-maps.php:76 vcat-posts-at-google-maps.php:88
+#: vcat-posts-at-google-maps.php:150 vcat-posts-at-google-maps.php:161
+#: vcat-posts-at-google-maps.php:223 vcat-posts-at-google-maps.php:233
+#: vcat-settings-menu.php:175 vcat-settings-menu.php:180
+#: vcat-settings-menu.php:322 vcat-settings-menu.php:324
+#: vcat-settings-menu.php:325 vcat-settings-menu.php:326
+#: vcat-settings-menu.php:423 vcat-settings-menu.php:427
+#: vcat-settings-menu.php:541 vcat-settings-menu.php:543
+#: vcat-settings-menu.php:544 vcat-settings-menu.php:545
 msgid "zoom"
 msgstr "zoom"
 
-#: vcat-posts-at-google-maps.php:74
+#: vcat-posts-at-google-maps.php:76
 msgid "8"
 msgstr "8"
 
-#: vcat-posts-at-google-maps.php:75 vcat-posts-at-google-maps.php:83
-#: vcat-posts-at-google-maps.php:141 vcat-posts-at-google-maps.php:150
-#: vcat-posts-at-google-maps.php:207 vcat-posts-at-google-maps.php:214
-#: vcat-settings-menu.php:190 vcat-settings-menu.php:192
-#: vcat-settings-menu.php:193 vcat-settings-menu.php:283
-#: vcat-settings-menu.php:285 vcat-settings-menu.php:286
-#: vcat-settings-menu.php:287 vcat-settings-menu.php:370
-#: vcat-settings-menu.php:372 vcat-settings-menu.php:373
-#: vcat-settings-menu.php:434 vcat-settings-menu.php:436
-#: vcat-settings-menu.php:437 vcat-settings-menu.php:438
+#: vcat-posts-at-google-maps.php:77 vcat-posts-at-google-maps.php:89
+#: vcat-posts-at-google-maps.php:151 vcat-posts-at-google-maps.php:160
+#: vcat-posts-at-google-maps.php:224 vcat-posts-at-google-maps.php:232
+#: vcat-settings-menu.php:194 vcat-settings-menu.php:196
+#: vcat-settings-menu.php:197 vcat-settings-menu.php:336
+#: vcat-settings-menu.php:338 vcat-settings-menu.php:339
+#: vcat-settings-menu.php:340 vcat-settings-menu.php:441
+#: vcat-settings-menu.php:443 vcat-settings-menu.php:444
+#: vcat-settings-menu.php:555 vcat-settings-menu.php:557
+#: vcat-settings-menu.php:558 vcat-settings-menu.php:559
 msgid "target"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:75 vcat-posts-at-google-maps.php:83
-#: vcat-settings-menu.php:192 vcat-settings-menu.php:372
+#: vcat-posts-at-google-maps.php:77 vcat-posts-at-google-maps.php:89
+#: vcat-settings-menu.php:196 vcat-settings-menu.php:443
 msgid "blank"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:76 vcat-posts-at-google-maps.php:84
-#: vcat-posts-at-google-maps.php:142 vcat-posts-at-google-maps.php:152
-#: vcat-posts-at-google-maps.php:208 vcat-posts-at-google-maps.php:216
-#: vcat-settings-menu.php:201 vcat-settings-menu.php:203
-#: vcat-settings-menu.php:204 vcat-settings-menu.php:297
-#: vcat-settings-menu.php:299 vcat-settings-menu.php:300
-#: vcat-settings-menu.php:301 vcat-settings-menu.php:381
-#: vcat-settings-menu.php:383 vcat-settings-menu.php:384
-#: vcat-settings-menu.php:448 vcat-settings-menu.php:450
-#: vcat-settings-menu.php:451 vcat-settings-menu.php:452
+#: vcat-posts-at-google-maps.php:78 vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:152 vcat-posts-at-google-maps.php:162
+#: vcat-posts-at-google-maps.php:225 vcat-posts-at-google-maps.php:234
+#: vcat-settings-menu.php:205 vcat-settings-menu.php:207
+#: vcat-settings-menu.php:208 vcat-settings-menu.php:350
+#: vcat-settings-menu.php:352 vcat-settings-menu.php:353
+#: vcat-settings-menu.php:354 vcat-settings-menu.php:452
+#: vcat-settings-menu.php:454 vcat-settings-menu.php:455
+#: vcat-settings-menu.php:569 vcat-settings-menu.php:571
+#: vcat-settings-menu.php:572 vcat-settings-menu.php:573
 msgid "align"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:76 vcat-posts-at-google-maps.php:84
-#: vcat-settings-menu.php:203 vcat-settings-menu.php:383
+#: vcat-posts-at-google-maps.php:78 vcat-posts-at-google-maps.php:90
+#: vcat-settings-menu.php:207 vcat-settings-menu.php:454
 msgid "left"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:80 vcat-posts-at-google-maps.php:81
+#: vcat-posts-at-google-maps.php:79 vcat-posts-at-google-maps.php:91
+#: vcat-posts-at-google-maps.php:226 vcat-posts-at-google-maps.php:302
+#: vcat-settings-menu.php:216 vcat-settings-menu.php:366
+#: vcat-settings-menu.php:463 vcat-settings-menu.php:584
+msgid "color"
+msgstr ""
+
+#: vcat-posts-at-google-maps.php:80 vcat-posts-at-google-maps.php:92
+#: vcat-posts-at-google-maps.php:108 vcat-posts-at-google-maps.php:251
+#: vcat-posts-at-google-maps.php:310 vcat-posts-at-google-maps.php:311
+#: vcat-posts-at-google-maps.php:313 vcat-settings-menu.php:224
+#: vcat-settings-menu.php:225 vcat-settings-menu.php:226
+#: vcat-settings-menu.php:227 vcat-settings-menu.php:228
+#: vcat-settings-menu.php:229 vcat-settings-menu.php:230
+#: vcat-settings-menu.php:231 vcat-settings-menu.php:232
+#: vcat-settings-menu.php:233 vcat-settings-menu.php:234
+#: vcat-settings-menu.php:235 vcat-settings-menu.php:471
+#: vcat-settings-menu.php:472 vcat-settings-menu.php:473
+#: vcat-settings-menu.php:474 vcat-settings-menu.php:475
+#: vcat-settings-menu.php:476 vcat-settings-menu.php:477
+#: vcat-settings-menu.php:478 vcat-settings-menu.php:479
+#: vcat-settings-menu.php:480 vcat-settings-menu.php:481
+#: vcat-settings-menu.php:482
+msgid "postcolor"
+msgstr ""
+
+#: vcat-posts-at-google-maps.php:80 vcat-posts-at-google-maps.php:92
+#: vcat-settings-menu.php:228 vcat-settings-menu.php:247
+#: vcat-settings-menu.php:475 vcat-settings-menu.php:494 custom/meta.php:52
+msgid "orange"
+msgstr ""
+
+#: vcat-posts-at-google-maps.php:81 vcat-posts-at-google-maps.php:93
+#: vcat-posts-at-google-maps.php:108 vcat-posts-at-google-maps.php:249
+#: vcat-posts-at-google-maps.php:315 vcat-posts-at-google-maps.php:316
+#: vcat-posts-at-google-maps.php:318 vcat-settings-menu.php:243
+#: vcat-settings-menu.php:244 vcat-settings-menu.php:245
+#: vcat-settings-menu.php:246 vcat-settings-menu.php:247
+#: vcat-settings-menu.php:248 vcat-settings-menu.php:249
+#: vcat-settings-menu.php:250 vcat-settings-menu.php:251
+#: vcat-settings-menu.php:252 vcat-settings-menu.php:253
+#: vcat-settings-menu.php:254 vcat-settings-menu.php:490
+#: vcat-settings-menu.php:491 vcat-settings-menu.php:492
+#: vcat-settings-menu.php:493 vcat-settings-menu.php:494
+#: vcat-settings-menu.php:495 vcat-settings-menu.php:496
+#: vcat-settings-menu.php:497 vcat-settings-menu.php:498
+#: vcat-settings-menu.php:499 vcat-settings-menu.php:500
+#: vcat-settings-menu.php:501
+#, fuzzy
+msgid "pagecolor"
+msgstr "vcat_geo"
+
+#: vcat-posts-at-google-maps.php:81 vcat-posts-at-google-maps.php:93
+#: vcat-settings-menu.php:235 vcat-settings-menu.php:254
+#: vcat-settings-menu.php:482 vcat-settings-menu.php:501 custom/meta.php:59
+msgid "gray"
+msgstr ""
+
+#: vcat-posts-at-google-maps.php:86 vcat-posts-at-google-maps.php:87
 msgid "200px"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:82
+#: vcat-posts-at-google-maps.php:88
 msgid "9"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:88
+#: vcat-posts-at-google-maps.php:98
 msgid "author"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:88
+#: vcat-posts-at-google-maps.php:98
 msgid "author_name"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:88
+#: vcat-posts-at-google-maps.php:98
 msgid "author__in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:88
+#: vcat-posts-at-google-maps.php:98
 msgid "author__not_in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:89
+#: vcat-posts-at-google-maps.php:99
 msgid "cat"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:89
+#: vcat-posts-at-google-maps.php:99
 msgid "category_name"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:89
+#: vcat-posts-at-google-maps.php:99
 msgid "category__and"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:89
+#: vcat-posts-at-google-maps.php:99
 msgid "category__in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:89
+#: vcat-posts-at-google-maps.php:99
 msgid "category__not_in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:100
 msgid "tag"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:100
 msgid "tag_id"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:100
 msgid "tag__and"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:100
 msgid "tag__in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:100
 msgid "tag__not_in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:100
 msgid "tag_slug__and"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:90
+#: vcat-posts-at-google-maps.php:100
 msgid "tag_slug__in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:91
+#: vcat-posts-at-google-maps.php:101
 msgid "s"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:92 vcat-settings-menu.php:46
+#: vcat-posts-at-google-maps.php:102 vcat-settings-menu.php:46
 #: core/vcat-core.php:57
 msgid "name"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:92
+#: vcat-posts-at-google-maps.php:102
 msgid "page_id"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:92
+#: vcat-posts-at-google-maps.php:102
 msgid "pagename"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:92
+#: vcat-posts-at-google-maps.php:102
 msgid "post_parent"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:92
+#: vcat-posts-at-google-maps.php:102
 msgid "post_parent__in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:93
+#: vcat-posts-at-google-maps.php:103
 msgid "post_parent__not_in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:93
+#: vcat-posts-at-google-maps.php:103
 msgid "post__in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:93
+#: vcat-posts-at-google-maps.php:103
 msgid "post__not_in"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:94
+#: vcat-posts-at-google-maps.php:104
 msgid "post_status"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "year"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "monthnum"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "w"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "day"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "hour"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "minute"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "second"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:95
+#: vcat-posts-at-google-maps.php:105
 msgid "m"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:96
+#: vcat-posts-at-google-maps.php:106
 msgid "meta_key"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:96
+#: vcat-posts-at-google-maps.php:106
 msgid "meta_value"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:96
+#: vcat-posts-at-google-maps.php:106
 msgid "meta_value_num"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:96
+#: vcat-posts-at-google-maps.php:106
 msgid "meta_compare"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:97
+#: vcat-posts-at-google-maps.php:107
 msgid "perm"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:108
+#: vcat-posts-at-google-maps.php:118
 msgid "google-maps-api-js"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:109
+#: vcat-posts-at-google-maps.php:119
 msgid "http://maps.google.com/maps/api/js?sensor=false"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:110
+#: vcat-posts-at-google-maps.php:120
 msgid "jquery"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:115
+#: vcat-posts-at-google-maps.php:125
 #, fuzzy
 msgid "vcat-geo-map-js"
 msgstr "vcat_geo"
 
-#: vcat-posts-at-google-maps.php:116
+#: vcat-posts-at-google-maps.php:126
 msgid "/scripts/js/functions.js"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:120
+#: vcat-posts-at-google-maps.php:130
 msgid "vcat-geo-map-css"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:121
+#: vcat-posts-at-google-maps.php:131
 msgid "/styles/styles.css"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:137 vcat-settings-menu.php:75
-#: vcat-settings-menu.php:119 vcat-settings-menu.php:126
-#: vcat-settings-menu.php:212
+#: vcat-posts-at-google-maps.php:147 vcat-settings-menu.php:75
+#: vcat-settings-menu.php:123 vcat-settings-menu.php:130
+#: vcat-settings-menu.php:265
 msgid "vcat_geo_width"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:138 vcat-settings-menu.php:76
-#: vcat-settings-menu.php:135 vcat-settings-menu.php:142
-#: vcat-settings-menu.php:226
+#: vcat-posts-at-google-maps.php:148 vcat-settings-menu.php:76
+#: vcat-settings-menu.php:139 vcat-settings-menu.php:146
+#: vcat-settings-menu.php:279
 msgid "vcat_geo_height"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:139 vcat-settings-menu.php:77
-#: vcat-settings-menu.php:151 vcat-settings-menu.php:162
-#: vcat-settings-menu.php:172 vcat-settings-menu.php:240
+#: vcat-posts-at-google-maps.php:149 vcat-settings-menu.php:77
+#: vcat-settings-menu.php:155 vcat-settings-menu.php:166
+#: vcat-settings-menu.php:176 vcat-settings-menu.php:293
 msgid "vcat_geo_center"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:140 vcat-settings-menu.php:78
-#: vcat-settings-menu.php:171 vcat-settings-menu.php:181
-#: vcat-settings-menu.php:269
+#: vcat-posts-at-google-maps.php:150 vcat-settings-menu.php:78
+#: vcat-settings-menu.php:175 vcat-settings-menu.php:185
+#: vcat-settings-menu.php:322
 msgid "vcat_geo_zoom"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:141 vcat-settings-menu.php:79
-#: vcat-settings-menu.php:190 vcat-settings-menu.php:283
+#: vcat-posts-at-google-maps.php:151 vcat-settings-menu.php:79
+#: vcat-settings-menu.php:194 vcat-settings-menu.php:336
 msgid "vcat_geo_target"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:142 vcat-settings-menu.php:80
-#: vcat-settings-menu.php:201 vcat-settings-menu.php:297
+#: vcat-posts-at-google-maps.php:152 vcat-settings-menu.php:80
+#: vcat-settings-menu.php:205 vcat-settings-menu.php:350
 #, fuzzy
 msgid "vcat_geo_align"
 msgstr "vcat_geo_mini"
 
-#: vcat-posts-at-google-maps.php:163 vcat-posts-at-google-maps.php:228
+#: vcat-posts-at-google-maps.php:180
 msgid ""
 "\r\n"
 "\t\t<div id='map_canvas' style='width:"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:164 vcat-posts-at-google-maps.php:229
+#: vcat-posts-at-google-maps.php:181 vcat-posts-at-google-maps.php:262
 msgid ";height:"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:164 vcat-posts-at-google-maps.php:229
+#: vcat-posts-at-google-maps.php:181 vcat-posts-at-google-maps.php:262
 msgid ";' class='align-"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:164 vcat-posts-at-google-maps.php:229
+#: vcat-posts-at-google-maps.php:181 vcat-posts-at-google-maps.php:262
 msgid ""
 "'></div>\r\n"
 "\t\t<script type='text/javascript'>\r\n"
@@ -840,13 +963,13 @@ msgid ""
 "\t\t\t\tvcatInitialize("
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:167
+#: vcat-posts-at-google-maps.php:184
 msgid ""
-");\r\n"
+", '');\r\n"
 "\t\t\t\t"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:168
+#: vcat-posts-at-google-maps.php:185
 msgid ""
 "\r\n"
 "\t\t\t});\r\n"
@@ -854,58 +977,80 @@ msgid ""
 "\t"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:204 vcat-settings-menu.php:91
-#: vcat-settings-menu.php:320 vcat-settings-menu.php:327
-#: vcat-settings-menu.php:392
+#: vcat-posts-at-google-maps.php:221 vcat-settings-menu.php:93
+#: vcat-settings-menu.php:391 vcat-settings-menu.php:398
+#: vcat-settings-menu.php:513
 msgid "vcat_geo_mini_width"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:205 vcat-settings-menu.php:92
-#: vcat-settings-menu.php:336 vcat-settings-menu.php:343
-#: vcat-settings-menu.php:406
+#: vcat-posts-at-google-maps.php:222 vcat-settings-menu.php:94
+#: vcat-settings-menu.php:407 vcat-settings-menu.php:414
+#: vcat-settings-menu.php:527
 msgid "vcat_geo_mini_height"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:206 vcat-settings-menu.php:93
-#: vcat-settings-menu.php:352 vcat-settings-menu.php:361
-#: vcat-settings-menu.php:420
+#: vcat-posts-at-google-maps.php:223 vcat-settings-menu.php:95
+#: vcat-settings-menu.php:423 vcat-settings-menu.php:432
+#: vcat-settings-menu.php:541
 msgid "vcat_geo_mini_zoom"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:207 vcat-settings-menu.php:94
-#: vcat-settings-menu.php:370 vcat-settings-menu.php:434
+#: vcat-posts-at-google-maps.php:224 vcat-settings-menu.php:96
+#: vcat-settings-menu.php:441 vcat-settings-menu.php:555
 msgid "vcat_geo_mini_target"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:208 vcat-settings-menu.php:95
-#: vcat-settings-menu.php:381 vcat-settings-menu.php:448
+#: vcat-posts-at-google-maps.php:225 vcat-settings-menu.php:97
+#: vcat-settings-menu.php:452 vcat-settings-menu.php:569
 #, fuzzy
 msgid "vcat_geo_mini_align"
 msgstr "vcat_geo_mini"
 
-#: vcat-posts-at-google-maps.php:226 vcat-posts-at-google-maps.php:294
-msgid "/images/vcat-gray-dot.png"
+#: vcat-posts-at-google-maps.php:226 vcat-settings-menu.php:98
+#: vcat-settings-menu.php:463 vcat-settings-menu.php:584
+#, fuzzy
+msgid "vcat_geo_mini_color"
+msgstr "vcat_geo_mini"
+
+#: vcat-posts-at-google-maps.php:246 vcat-posts-at-google-maps.php:249
+#: vcat-posts-at-google-maps.php:251 vcat-posts-at-google-maps.php:310
+#: vcat-posts-at-google-maps.php:315 vcat-posts-at-google-maps.php:347
+#: vcat-posts-at-google-maps.php:350 vcat-posts-at-google-maps.php:352
+msgid "/images/vcat-"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:226 vcat-posts-at-google-maps.php:296
-msgid "/images/vcat-orange-dot.png"
+#: vcat-posts-at-google-maps.php:246 vcat-posts-at-google-maps.php:249
+#: vcat-posts-at-google-maps.php:251 vcat-posts-at-google-maps.php:310
+#: vcat-posts-at-google-maps.php:315 vcat-posts-at-google-maps.php:347
+#: vcat-posts-at-google-maps.php:350 vcat-posts-at-google-maps.php:352
+msgid "-dot.png"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:232
+#: vcat-posts-at-google-maps.php:261
+msgid ""
+"\r\n"
+"\t\t<div id='map_canvas"
+msgstr ""
+
+#: vcat-posts-at-google-maps.php:262
+msgid "' style='width:"
+msgstr ""
+
+#: vcat-posts-at-google-maps.php:265
 msgid ""
 ");\r\n"
 "\t\t\t\tvcatAddMarker("
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:233 vcat-posts-at-google-maps.php:300
+#: vcat-posts-at-google-maps.php:266 vcat-posts-at-google-maps.php:358
 msgid ", '"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:233 vcat-posts-at-google-maps.php:300
+#: vcat-posts-at-google-maps.php:266 vcat-posts-at-google-maps.php:358
 msgid "', '"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:233
+#: vcat-posts-at-google-maps.php:266
 msgid ""
 "' );\r\n"
 "\t\t\t});\r\n"
@@ -913,34 +1058,29 @@ msgid ""
 "\t"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:250
+#: vcat-posts-at-google-maps.php:283
 msgid "http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address="
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:277 vcat-posts-at-google-maps.php:302
-#: vcat-posts-at-google-maps.php:309 vcat-settings-menu.php:153
-#: vcat-settings-menu.php:157 vcat-settings-menu.php:176
-#: vcat-settings-menu.php:216 vcat-settings-menu.php:230
-#: vcat-settings-menu.php:244 vcat-settings-menu.php:255
-#: vcat-settings-menu.php:256 vcat-settings-menu.php:273
-#: vcat-settings-menu.php:396 vcat-settings-menu.php:410
-#: vcat-settings-menu.php:424
-msgid "TRUE"
-msgstr "TRUE"
+#: vcat-posts-at-google-maps.php:302 vcat-settings-menu.php:81
+#: vcat-settings-menu.php:216 vcat-settings-menu.php:366
+#, fuzzy
+msgid "vcat_geo_color"
+msgstr "vcat_geo"
 
-#: vcat-posts-at-google-maps.php:278
+#: vcat-posts-at-google-maps.php:331
 msgid "var bounds = new google.maps.LatLngBounds ();\n"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:300
+#: vcat-posts-at-google-maps.php:358
 msgid "vcatAddMarker( "
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:300
+#: vcat-posts-at-google-maps.php:358
 msgid "' );\n"
 msgstr ""
 
-#: vcat-posts-at-google-maps.php:310
+#: vcat-posts-at-google-maps.php:368
 msgid "map.fitBounds(bounds); "
 msgstr ""
 
@@ -956,9 +1096,10 @@ msgstr ""
 #: vcat-settings-menu.php:75 vcat-settings-menu.php:76
 #: vcat-settings-menu.php:77 vcat-settings-menu.php:78
 #: vcat-settings-menu.php:79 vcat-settings-menu.php:80
-#: vcat-settings-menu.php:91 vcat-settings-menu.php:92
-#: vcat-settings-menu.php:93 vcat-settings-menu.php:94
-#: vcat-settings-menu.php:95
+#: vcat-settings-menu.php:81 vcat-settings-menu.php:93
+#: vcat-settings-menu.php:94 vcat-settings-menu.php:95
+#: vcat-settings-menu.php:96 vcat-settings-menu.php:97
+#: vcat-settings-menu.php:98
 msgid "vcat_geo_settings"
 msgstr ""
 
@@ -1034,17 +1175,18 @@ msgstr ""
 msgid "<form method=\"post\" action=\"options.php\">"
 msgstr ""
 
-#: vcat-settings-menu.php:62 vcat-settings-menu.php:82
-#: vcat-settings-menu.php:84 vcat-settings-menu.php:85
-#: vcat-settings-menu.php:86 vcat-settings-menu.php:87
-#: vcat-settings-menu.php:88 vcat-settings-menu.php:89
+#: vcat-settings-menu.php:62 vcat-settings-menu.php:83
+#: vcat-settings-menu.php:85 vcat-settings-menu.php:86
+#: vcat-settings-menu.php:87 vcat-settings-menu.php:88
+#: vcat-settings-menu.php:89 vcat-settings-menu.php:90
+#: vcat-settings-menu.php:91
 msgid "vcat_geo"
 msgstr "vcat_geo"
 
-#: vcat-settings-menu.php:63 vcat-settings-menu.php:97
-#: vcat-settings-menu.php:99 vcat-settings-menu.php:100
-#: vcat-settings-menu.php:101 vcat-settings-menu.php:102
-#: vcat-settings-menu.php:103
+#: vcat-settings-menu.php:63 vcat-settings-menu.php:100
+#: vcat-settings-menu.php:102 vcat-settings-menu.php:103
+#: vcat-settings-menu.php:104 vcat-settings-menu.php:105
+#: vcat-settings-menu.php:106 vcat-settings-menu.php:107
 msgid "vcat_geo_mini"
 msgstr "vcat_geo_mini"
 
@@ -1076,177 +1218,212 @@ msgstr ""
 msgid "vcat_geo_settings_validate_align"
 msgstr ""
 
-#: vcat-settings-menu.php:82 vcat-settings-menu.php:84
-#: vcat-settings-menu.php:85 vcat-settings-menu.php:86
-#: vcat-settings-menu.php:87 vcat-settings-menu.php:88
-#: vcat-settings-menu.php:89
+#: vcat-settings-menu.php:81
+#, fuzzy
+msgid "vcat_geo_settings_validate_color"
+msgstr "vcat_geo_mini"
+
+#: vcat-settings-menu.php:83 vcat-settings-menu.php:85
+#: vcat-settings-menu.php:86 vcat-settings-menu.php:87
+#: vcat-settings-menu.php:88 vcat-settings-menu.php:89
+#: vcat-settings-menu.php:90 vcat-settings-menu.php:91
 msgid "vcat_geo_map_section"
 msgstr ""
 
-#: vcat-settings-menu.php:82
+#: vcat-settings-menu.php:83
 msgid "Große Karte"
 msgstr "Große Karte"
 
-#: vcat-settings-menu.php:82
+#: vcat-settings-menu.php:83
 msgid "vcat_geo_map_headline"
 msgstr ""
 
-#: vcat-settings-menu.php:84
+#: vcat-settings-menu.php:85
 msgid "vcat_geo_map_width"
 msgstr ""
 
-#: vcat-settings-menu.php:84 vcat-settings-menu.php:99
+#: vcat-settings-menu.php:85 vcat-settings-menu.php:102
 msgid "Breite"
 msgstr "Breite"
 
-#: vcat-settings-menu.php:84
+#: vcat-settings-menu.php:85
 msgid "vcat_geo_map_widthbox"
 msgstr ""
 
-#: vcat-settings-menu.php:85
+#: vcat-settings-menu.php:86
 msgid "vcat_geo_map_height"
 msgstr ""
 
-#: vcat-settings-menu.php:85 vcat-settings-menu.php:100
+#: vcat-settings-menu.php:86 vcat-settings-menu.php:103
 msgid "Höhe"
 msgstr "Höhe"
 
-#: vcat-settings-menu.php:85
+#: vcat-settings-menu.php:86
 msgid "vcat_geo_map_heightbox"
 msgstr ""
 
-#: vcat-settings-menu.php:86
+#: vcat-settings-menu.php:87
 msgid "vcat_geo_map_center"
 msgstr ""
 
-#: vcat-settings-menu.php:86
+#: vcat-settings-menu.php:87
 msgid "Zentrum"
 msgstr "Zentrum"
 
-#: vcat-settings-menu.php:86
+#: vcat-settings-menu.php:87
 msgid "vcat_geo_map_centerbox"
 msgstr ""
 
-#: vcat-settings-menu.php:87
+#: vcat-settings-menu.php:88
 msgid "vcat_geo_map_zoom"
 msgstr ""
 
-#: vcat-settings-menu.php:87 vcat-settings-menu.php:101
+#: vcat-settings-menu.php:88 vcat-settings-menu.php:104
 msgid "Zoom"
 msgstr "Zoom"
 
-#: vcat-settings-menu.php:87
+#: vcat-settings-menu.php:88
 msgid "vcat_geo_map_zoombox"
 msgstr ""
 
-#: vcat-settings-menu.php:88
+#: vcat-settings-menu.php:89
 msgid "vcat_geo_map_target"
 msgstr ""
 
-#: vcat-settings-menu.php:88 vcat-settings-menu.php:102
+#: vcat-settings-menu.php:89 vcat-settings-menu.php:105
 msgid "Ziel"
 msgstr "Ziel"
 
-#: vcat-settings-menu.php:88
+#: vcat-settings-menu.php:89
 msgid "vcat_geo_map_targetbox"
 msgstr ""
 
-#: vcat-settings-menu.php:89
+#: vcat-settings-menu.php:90
 #, fuzzy
 msgid "vcat_geo_map_align"
 msgstr "vcat_geo_mini"
 
-#: vcat-settings-menu.php:89 vcat-settings-menu.php:103
+#: vcat-settings-menu.php:90 vcat-settings-menu.php:106
 msgid "Ausrichtung"
 msgstr ""
 
-#: vcat-settings-menu.php:89
+#: vcat-settings-menu.php:90
 #, fuzzy
 msgid "vcat_geo_map_alignbox"
 msgstr "vcat_geo_mini"
 
 #: vcat-settings-menu.php:91
+#, fuzzy
+msgid "vcat_geo_map_color"
+msgstr "vcat_geo_mini"
+
+#: vcat-settings-menu.php:91 vcat-settings-menu.php:107
+msgid "Farbe"
+msgstr ""
+
+#: vcat-settings-menu.php:91
+#, fuzzy
+msgid "vcat_geo_map_colorbox"
+msgstr "vcat_geo_mini"
+
+#: vcat-settings-menu.php:93
 msgid "vcat_geo_settings_validate_px_percent_mini"
 msgstr ""
 
-#: vcat-settings-menu.php:92
+#: vcat-settings-menu.php:94
 msgid "vcat_geo_settings_validate_px_mini"
 msgstr ""
 
-#: vcat-settings-menu.php:93
+#: vcat-settings-menu.php:95
 msgid "vcat_geo_settings_validate_zoom_mini"
 msgstr ""
 
-#: vcat-settings-menu.php:94
+#: vcat-settings-menu.php:96
 msgid "vcat_geo_settings_validate_target_mini"
 msgstr ""
 
-#: vcat-settings-menu.php:95
+#: vcat-settings-menu.php:97
 msgid "vcat_geo_settings_validate_align_mini"
 msgstr ""
 
-#: vcat-settings-menu.php:97 vcat-settings-menu.php:99
-#: vcat-settings-menu.php:100 vcat-settings-menu.php:101
-#: vcat-settings-menu.php:102 vcat-settings-menu.php:103
+#: vcat-settings-menu.php:98
+#, fuzzy
+msgid "vcat_geo_settings_validate_color_mini"
+msgstr "vcat_geo_mini"
+
+#: vcat-settings-menu.php:100 vcat-settings-menu.php:102
+#: vcat-settings-menu.php:103 vcat-settings-menu.php:104
+#: vcat-settings-menu.php:105 vcat-settings-menu.php:106
+#: vcat-settings-menu.php:107
 msgid "vcat_geo_mini_map_section"
 msgstr ""
 
-#: vcat-settings-menu.php:97
+#: vcat-settings-menu.php:100
 msgid "Kleine Karte"
 msgstr "Kleine Karte"
 
-#: vcat-settings-menu.php:97
+#: vcat-settings-menu.php:100
 msgid "vcat_geo_mini_map_headline"
 msgstr ""
 
-#: vcat-settings-menu.php:99
+#: vcat-settings-menu.php:102
 msgid "vcat_geo_mini_map_width"
 msgstr ""
 
-#: vcat-settings-menu.php:99
+#: vcat-settings-menu.php:102
 msgid "vcat_geo_mini_map_widthbox"
 msgstr ""
 
-#: vcat-settings-menu.php:100
+#: vcat-settings-menu.php:103
 msgid "vcat_geo_mini_map_height"
 msgstr ""
 
-#: vcat-settings-menu.php:100
+#: vcat-settings-menu.php:103
 msgid "vcat_geo_mini_map_heightbox"
 msgstr ""
 
-#: vcat-settings-menu.php:101
+#: vcat-settings-menu.php:104
 msgid "vcat_geo_mini_map_zoom"
 msgstr ""
 
-#: vcat-settings-menu.php:101
+#: vcat-settings-menu.php:104
 msgid "vcat_geo_mini_map_zoombox"
 msgstr ""
 
-#: vcat-settings-menu.php:102
+#: vcat-settings-menu.php:105
 msgid "vcat_geo_mini_map_target"
 msgstr ""
 
-#: vcat-settings-menu.php:102
+#: vcat-settings-menu.php:105
 msgid "vcat_geo_mini_map_targetbox"
 msgstr ""
 
-#: vcat-settings-menu.php:103
+#: vcat-settings-menu.php:106
 #, fuzzy
 msgid "vcat_geo_mini_map_align"
 msgstr "vcat_geo_mini"
 
-#: vcat-settings-menu.php:103
+#: vcat-settings-menu.php:106
 #, fuzzy
 msgid "vcat_geo_mini_map_alignbox"
 msgstr "vcat_geo_mini"
 
-#: vcat-settings-menu.php:110
+#: vcat-settings-menu.php:107
+#, fuzzy
+msgid "vcat_geo_mini_map_color"
+msgstr "vcat_geo_mini"
+
+#: vcat-settings-menu.php:107
+#, fuzzy
+msgid "vcat_geo_mini_map_colorbox"
+msgstr "vcat_geo_mini"
+
+#: vcat-settings-menu.php:114
 #, fuzzy
 msgid ""
 "Hier können sie die Standardeinstellungen für die große Google Map Karte "
 "einstellen, Höhe und Breite bestimmen die Größe der Karte, \r\n"
-"\t  während Zentrum und Zoom die Standartausrichtung der Karte bestimmen. "
+"\t  während Zentrum und Zoom die Standardausrichtung der Karte bestimmen. "
 "Das Ziel bestimmt wohin die Links der verschiedenen Marker führt. "
 msgstr ""
 "Hier können sie die Standarteinstellungen für die Google Map einstellen, "
@@ -1254,66 +1431,75 @@ msgstr ""
 "\t <br>während Zentrum(als Adresse angeben) und Zoom die Standartausrichtung "
 "der Karte bestimmen"
 
-#: vcat-settings-menu.php:121
+#: vcat-settings-menu.php:125
 msgid "<input id='width' name='vcat_geo_width[width]' type='text' value='"
 msgstr ""
 
-#: vcat-settings-menu.php:121 vcat-settings-menu.php:137
-#: vcat-settings-menu.php:153 vcat-settings-menu.php:322
-#: vcat-settings-menu.php:338
+#: vcat-settings-menu.php:125 vcat-settings-menu.php:141
+#: vcat-settings-menu.php:157 vcat-settings-menu.php:393
+#: vcat-settings-menu.php:409
 msgid "' class='regular-text "
 msgstr ""
 
-#: vcat-settings-menu.php:121 vcat-settings-menu.php:124
-#: vcat-settings-menu.php:125 vcat-settings-menu.php:137
-#: vcat-settings-menu.php:140 vcat-settings-menu.php:141
-#: vcat-settings-menu.php:153 vcat-settings-menu.php:160
-#: vcat-settings-menu.php:161 vcat-settings-menu.php:179
-#: vcat-settings-menu.php:180 vcat-settings-menu.php:216
-#: vcat-settings-menu.php:230 vcat-settings-menu.php:244
-#: vcat-settings-menu.php:273 vcat-settings-menu.php:322
-#: vcat-settings-menu.php:325 vcat-settings-menu.php:326
-#: vcat-settings-menu.php:338 vcat-settings-menu.php:341
-#: vcat-settings-menu.php:342 vcat-settings-menu.php:359
-#: vcat-settings-menu.php:360 vcat-settings-menu.php:396
-#: vcat-settings-menu.php:410 vcat-settings-menu.php:424
+#: vcat-settings-menu.php:125 vcat-settings-menu.php:128
+#: vcat-settings-menu.php:129 vcat-settings-menu.php:141
+#: vcat-settings-menu.php:144 vcat-settings-menu.php:145
+#: vcat-settings-menu.php:157 vcat-settings-menu.php:164
+#: vcat-settings-menu.php:165 vcat-settings-menu.php:183
+#: vcat-settings-menu.php:184 vcat-settings-menu.php:269
+#: vcat-settings-menu.php:283 vcat-settings-menu.php:297
+#: vcat-settings-menu.php:326 vcat-settings-menu.php:393
+#: vcat-settings-menu.php:396 vcat-settings-menu.php:397
+#: vcat-settings-menu.php:409 vcat-settings-menu.php:412
+#: vcat-settings-menu.php:413 vcat-settings-menu.php:430
+#: vcat-settings-menu.php:431 vcat-settings-menu.php:517
+#: vcat-settings-menu.php:531 vcat-settings-menu.php:545
 msgid "fail"
 msgstr "fail"
 
-#: vcat-settings-menu.php:121 vcat-settings-menu.php:137
-#: vcat-settings-menu.php:322 vcat-settings-menu.php:338
+#: vcat-settings-menu.php:125 vcat-settings-menu.php:141
+#: vcat-settings-menu.php:393 vcat-settings-menu.php:409
 msgid "'/>"
 msgstr ""
 
-#: vcat-settings-menu.php:122 vcat-settings-menu.php:323
+#: vcat-settings-menu.php:126 vcat-settings-menu.php:394
 msgid "<p class='description'> Nur Pixel oder Prozentangaben! </p>"
 msgstr "<p class='description'> Nur Pixel oder Prozentangaben! </p>"
 
-#: vcat-settings-menu.php:137
+#: vcat-settings-menu.php:141
 msgid "<input id='height' name='vcat_geo_height[height]' type='text' value='"
 msgstr ""
 
-#: vcat-settings-menu.php:138 vcat-settings-menu.php:339
+#: vcat-settings-menu.php:142 vcat-settings-menu.php:410
 msgid "<p class='description'> Nur Pixelangaben! </p>"
 msgstr "<p class='description'> Nur Pixelangaben! </p>"
 
-#: vcat-settings-menu.php:153
+#: vcat-settings-menu.php:157
 msgid "<input id='center' name='vcat_geo_center[center]' type='text' value='"
 msgstr ""
 
-#: vcat-settings-menu.php:153
+#: vcat-settings-menu.php:157
 msgid "' "
 msgstr ""
 
-#: vcat-settings-menu.php:153
+#: vcat-settings-menu.php:157 vcat-settings-menu.php:161
+#: vcat-settings-menu.php:180 vcat-settings-menu.php:269
+#: vcat-settings-menu.php:283 vcat-settings-menu.php:297
+#: vcat-settings-menu.php:308 vcat-settings-menu.php:309
+#: vcat-settings-menu.php:326 vcat-settings-menu.php:517
+#: vcat-settings-menu.php:531 vcat-settings-menu.php:545
+msgid "TRUE"
+msgstr "TRUE"
+
+#: vcat-settings-menu.php:157
 msgid "readonly"
 msgstr ""
 
-#: vcat-settings-menu.php:153
+#: vcat-settings-menu.php:157
 msgid "/>"
 msgstr ""
 
-#: vcat-settings-menu.php:154
+#: vcat-settings-menu.php:158
 msgid ""
 "<p class='description'> Adressen dürfen neben Buchstaben(inkl. ä,ö,ü,ß) und "
 "Zahlen nur Bindestriche und Punkte enthalten. \r\n"
@@ -1323,111 +1509,301 @@ msgid ""
 "eigenen Adressen weglassen.</p>"
 msgstr ""
 
-#: vcat-settings-menu.php:157
+#: vcat-settings-menu.php:161
 msgid ""
 "<label><input type='checkbox' value='TRUE' name='vcat_geo_center[dynamic]' "
 msgstr ""
 
-#: vcat-settings-menu.php:157 vcat-settings-menu.php:192
-#: vcat-settings-menu.php:193 vcat-settings-menu.php:203
-#: vcat-settings-menu.php:204 vcat-settings-menu.php:372
-#: vcat-settings-menu.php:373 vcat-settings-menu.php:383
-#: vcat-settings-menu.php:384
+#: vcat-settings-menu.php:161 vcat-settings-menu.php:196
+#: vcat-settings-menu.php:197 vcat-settings-menu.php:207
+#: vcat-settings-menu.php:208 vcat-settings-menu.php:443
+#: vcat-settings-menu.php:444 vcat-settings-menu.php:454
+#: vcat-settings-menu.php:455
 msgid "checked"
 msgstr "checked"
 
-#: vcat-settings-menu.php:157
+#: vcat-settings-menu.php:161
 msgid "><span> Dynamisch</span></label>"
 msgstr ""
 
-#: vcat-settings-menu.php:158
+#: vcat-settings-menu.php:162
 msgid ""
 "<p class='description'> Wenn sie Zentrum auf Dynamisch setzen, werden "
 "Zentrum und Zoom automatisch berechnet, so das alle Marker im sichtbaren "
 "Bereich liegen. </p>"
 msgstr ""
 
-#: vcat-settings-menu.php:176
+#: vcat-settings-menu.php:180
 msgid "<div id='zoom-slider"
 msgstr ""
 
-#: vcat-settings-menu.php:176
+#: vcat-settings-menu.php:180
 msgid " disappear"
 msgstr ""
 
-#: vcat-settings-menu.php:176
+#: vcat-settings-menu.php:180
 msgid "'></div><input id='zoom' name='vcat_geo_zoom[zoom]' value='"
 msgstr ""
 
-#: vcat-settings-menu.php:176 vcat-settings-menu.php:356
+#: vcat-settings-menu.php:180 vcat-settings-menu.php:427
 msgid "' type='text' readonly/>"
 msgstr ""
 
-#: vcat-settings-menu.php:192
+#: vcat-settings-menu.php:196
 msgid ""
 "<label><input type='radio' name='vcat_geo_target[target]' value='blank' "
 msgstr ""
 
-#: vcat-settings-menu.php:192
+#: vcat-settings-menu.php:196
 msgid ""
 " ><span> Neues Fenster/Neuer Tab </span></label><br>\r\n"
 "\t  <label><input type='radio' name='vcat_geo_target[target]' value='top' "
 msgstr ""
 
-#: vcat-settings-menu.php:193 vcat-settings-menu.php:373
+#: vcat-settings-menu.php:197 vcat-settings-menu.php:444
 msgid "top"
 msgstr "top"
 
-#: vcat-settings-menu.php:193 vcat-settings-menu.php:373
+#: vcat-settings-menu.php:197 vcat-settings-menu.php:444
 msgid "><span> Aktives Fenster </span></label>"
 msgstr ""
 
-#: vcat-settings-menu.php:203
+#: vcat-settings-menu.php:207
 msgid "<label><input type='radio' name='vcat_geo_align[align]' value='left' "
 msgstr ""
 
-#: vcat-settings-menu.php:203
+#: vcat-settings-menu.php:207
 msgid ""
 " ><span> links </span></label><br>\r\n"
 "\t  \t  <label><input type='radio' name='vcat_geo_align[align]' "
 "value='right' "
 msgstr ""
 
-#: vcat-settings-menu.php:204 vcat-settings-menu.php:384
+#: vcat-settings-menu.php:208 vcat-settings-menu.php:455
 msgid "right"
 msgstr ""
 
-#: vcat-settings-menu.php:204 vcat-settings-menu.php:384
+#: vcat-settings-menu.php:208 vcat-settings-menu.php:455
 msgid "><span> rechts </span></label>"
 msgstr ""
 
-#: vcat-settings-menu.php:215 vcat-settings-menu.php:395
+#: vcat-settings-menu.php:218
+msgid ""
+"  \r\n"
+"\t<table><tr><td style='padding:0px; padding-right: 10px;'>\t\r\n"
+"\tBeitr&auml;ge:\r\n"
+"\t\r\n"
+"\t</td><td style='padding:0px;'>\r\n"
+"\t<select name='vcat_geo_color[postcolor]'>\r\n"
+"\t  <option "
+msgstr ""
+
+#: vcat-settings-menu.php:224 vcat-settings-menu.php:243
+#: vcat-settings-menu.php:471 vcat-settings-menu.php:490 custom/meta.php:48
+msgid "blue"
+msgstr ""
+
+#: vcat-settings-menu.php:224 vcat-settings-menu.php:225
+#: vcat-settings-menu.php:226 vcat-settings-menu.php:227
+#: vcat-settings-menu.php:228 vcat-settings-menu.php:229
+#: vcat-settings-menu.php:230 vcat-settings-menu.php:231
+#: vcat-settings-menu.php:232 vcat-settings-menu.php:233
+#: vcat-settings-menu.php:234 vcat-settings-menu.php:235
+#: vcat-settings-menu.php:243 vcat-settings-menu.php:244
+#: vcat-settings-menu.php:245 vcat-settings-menu.php:246
+#: vcat-settings-menu.php:247 vcat-settings-menu.php:248
+#: vcat-settings-menu.php:249 vcat-settings-menu.php:250
+#: vcat-settings-menu.php:251 vcat-settings-menu.php:252
+#: vcat-settings-menu.php:253 vcat-settings-menu.php:254
+#: vcat-settings-menu.php:471 vcat-settings-menu.php:472
+#: vcat-settings-menu.php:473 vcat-settings-menu.php:474
+#: vcat-settings-menu.php:475 vcat-settings-menu.php:476
+#: vcat-settings-menu.php:477 vcat-settings-menu.php:478
+#: vcat-settings-menu.php:479 vcat-settings-menu.php:480
+#: vcat-settings-menu.php:481 vcat-settings-menu.php:482
+#: vcat-settings-menu.php:490 vcat-settings-menu.php:491
+#: vcat-settings-menu.php:492 vcat-settings-menu.php:493
+#: vcat-settings-menu.php:494 vcat-settings-menu.php:495
+#: vcat-settings-menu.php:496 vcat-settings-menu.php:497
+#: vcat-settings-menu.php:498 vcat-settings-menu.php:499
+#: vcat-settings-menu.php:500 vcat-settings-menu.php:501 custom/meta.php:48
+#: custom/meta.php:49 custom/meta.php:50 custom/meta.php:51 custom/meta.php:52
+#: custom/meta.php:53 custom/meta.php:54 custom/meta.php:55 custom/meta.php:56
+#: custom/meta.php:57 custom/meta.php:58 custom/meta.php:59
+msgid "selected"
+msgstr ""
+
+#: vcat-settings-menu.php:224 vcat-settings-menu.php:243
+#: vcat-settings-menu.php:471 vcat-settings-menu.php:490
+msgid ""
+" value='blue'>Blau</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:225 vcat-settings-menu.php:244
+#: vcat-settings-menu.php:472 vcat-settings-menu.php:491 custom/meta.php:49
+msgid "red"
+msgstr ""
+
+#: vcat-settings-menu.php:225 vcat-settings-menu.php:244
+#: vcat-settings-menu.php:472 vcat-settings-menu.php:491
+msgid ""
+" value='red'>Rot</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:226 vcat-settings-menu.php:245
+#: vcat-settings-menu.php:473 vcat-settings-menu.php:492 custom/meta.php:50
+msgid "yellow"
+msgstr ""
+
+#: vcat-settings-menu.php:226 vcat-settings-menu.php:245
+#: vcat-settings-menu.php:473 vcat-settings-menu.php:492
+msgid ""
+" value='yellow'>Gelb</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:227 vcat-settings-menu.php:246
+#: vcat-settings-menu.php:474 vcat-settings-menu.php:493 custom/meta.php:51
+msgid "green"
+msgstr ""
+
+#: vcat-settings-menu.php:227 vcat-settings-menu.php:246
+#: vcat-settings-menu.php:474 vcat-settings-menu.php:493
+msgid ""
+" value='green'>Grün</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:228 vcat-settings-menu.php:247
+#: vcat-settings-menu.php:475 vcat-settings-menu.php:494
+msgid ""
+" value='orange'>Orange</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:229 vcat-settings-menu.php:248
+#: vcat-settings-menu.php:476 vcat-settings-menu.php:495 custom/meta.php:53
+msgid "purple"
+msgstr ""
+
+#: vcat-settings-menu.php:229 vcat-settings-menu.php:248
+#: vcat-settings-menu.php:476 vcat-settings-menu.php:495
+msgid ""
+" value='purple'>Lila</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:230 vcat-settings-menu.php:249
+#: vcat-settings-menu.php:477 vcat-settings-menu.php:496 custom/meta.php:54
+msgid "magenta"
+msgstr ""
+
+#: vcat-settings-menu.php:230 vcat-settings-menu.php:249
+#: vcat-settings-menu.php:477 vcat-settings-menu.php:496
+msgid ""
+" value='magenta'>Magenta</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:231 vcat-settings-menu.php:250
+#: vcat-settings-menu.php:478 vcat-settings-menu.php:497 custom/meta.php:55
+msgid "cyan"
+msgstr ""
+
+#: vcat-settings-menu.php:231 vcat-settings-menu.php:250
+#: vcat-settings-menu.php:478 vcat-settings-menu.php:497
+msgid ""
+" value='cyan'>Cyan</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:232 vcat-settings-menu.php:251
+#: vcat-settings-menu.php:479 vcat-settings-menu.php:498 custom/meta.php:56
+msgid "pink"
+msgstr ""
+
+#: vcat-settings-menu.php:232 vcat-settings-menu.php:251
+#: vcat-settings-menu.php:479 vcat-settings-menu.php:498
+msgid ""
+" value='pink'>Rosa</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:233 vcat-settings-menu.php:252
+#: vcat-settings-menu.php:480 vcat-settings-menu.php:499 custom/meta.php:57
+msgid "brown"
+msgstr ""
+
+#: vcat-settings-menu.php:233 vcat-settings-menu.php:252
+#: vcat-settings-menu.php:480 vcat-settings-menu.php:499
+msgid ""
+" value='brown'>Braun</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:234 vcat-settings-menu.php:253
+#: vcat-settings-menu.php:481 vcat-settings-menu.php:500 custom/meta.php:58
+msgid "beige"
+msgstr ""
+
+#: vcat-settings-menu.php:234 vcat-settings-menu.php:253
+#: vcat-settings-menu.php:481 vcat-settings-menu.php:500
+msgid ""
+" value='beige'>Beige</option>\r\n"
+"      <option "
+msgstr ""
+
+#: vcat-settings-menu.php:235
+msgid ""
+" value='gray'>Grau</option>\r\n"
+"    </select>\r\n"
+"\t\r\n"
+"\t</td></tr><tr><td style='padding:0px; padding-right: 10px;'>\t\r\n"
+"\tSeiten:\r\n"
+"\t\r\n"
+"\t</td><td style='padding:0px;'>\r\n"
+"\t<select name='vcat_geo_color[pagecolor]'>\r\n"
+"\t  <option "
+msgstr ""
+
+#: vcat-settings-menu.php:254 vcat-settings-menu.php:501
+msgid ""
+" value='gray'>Grau</option>\r\n"
+"    </select>\r\n"
+"\t\r\n"
+"\t</td></tr></table>"
+msgstr ""
+
+#: vcat-settings-menu.php:268 vcat-settings-menu.php:516
 msgid "/^\\d+(px|\\%){1}$/"
 msgstr ""
 
-#: vcat-settings-menu.php:229 vcat-settings-menu.php:409
+#: vcat-settings-menu.php:282 vcat-settings-menu.php:530
 msgid "/^\\d+(px){1}$/"
 msgstr ""
 
-#: vcat-settings-menu.php:243
+#: vcat-settings-menu.php:296
 msgid "/^[-a-zA-Z0-9äöüßÄÖÜ. ]+$/"
 msgstr ""
 
-#: vcat-settings-menu.php:272 vcat-settings-menu.php:423
+#: vcat-settings-menu.php:325 vcat-settings-menu.php:544
 msgid "/^\\d{1,2}$/"
 msgstr ""
 
-#: vcat-settings-menu.php:286 vcat-settings-menu.php:300
-#: vcat-settings-menu.php:437 vcat-settings-menu.php:451
+#: vcat-settings-menu.php:339 vcat-settings-menu.php:353
+#: vcat-settings-menu.php:370 vcat-settings-menu.php:558
+#: vcat-settings-menu.php:572 vcat-settings-menu.php:588
 msgid "/^\\w+$/"
 msgstr ""
 
-#: vcat-settings-menu.php:311
+#: vcat-settings-menu.php:382
 #, fuzzy
 msgid ""
 "Hier können sie die Standardeinstellungen für die kleinen Google Map Karten "
 "einstellen, Höhe und Breite bestimmen die Größe der Karte, \r\n"
-"\t  die Standartausrichtung bildet der jeweilige Post auf der die Minimap "
+"\t  die Standardausrichtung bildet der jeweilige Post auf der die Minimap "
 "zusehen ist zusammen mit dem Zoom. Das Ziel bestimmt wohin die Links der "
 "verschiedenen Marker führt."
 msgstr ""
@@ -1436,43 +1812,67 @@ msgstr ""
 "\t <br>während Zentrum(als Adresse angeben) und Zoom die Standartausrichtung "
 "der Karte bestimmen"
 
-#: vcat-settings-menu.php:322
+#: vcat-settings-menu.php:393
 msgid "<input id='width' name='vcat_geo_mini_width[width]' type='text' value='"
 msgstr ""
 
-#: vcat-settings-menu.php:338
+#: vcat-settings-menu.php:409
 msgid ""
 "<input id='height' name='vcat_geo_mini_height[height]' type='text' value='"
 msgstr ""
 
-#: vcat-settings-menu.php:356
+#: vcat-settings-menu.php:427
 msgid ""
 "<div id='mini-zoom-slider'></div><input id='mini_zoom' "
 "name='vcat_geo_mini_zoom[zoom]' value='"
 msgstr ""
 
-#: vcat-settings-menu.php:372
+#: vcat-settings-menu.php:443
 msgid ""
 "<label><input type='radio' name='vcat_geo_mini_target[target]' value='blank' "
 msgstr ""
 
-#: vcat-settings-menu.php:372
+#: vcat-settings-menu.php:443
 msgid ""
 " ><span> Neues Fenster/Neuer Tab </span></label><br>\r\n"
 "\t  <label><input type='radio' name='vcat_geo_mini_target[target]' "
 "value='top' "
 msgstr ""
 
-#: vcat-settings-menu.php:383
+#: vcat-settings-menu.php:454
 msgid ""
 "<label><input type='radio' name='vcat_geo_mini_align[align]' value='left' "
 msgstr ""
 
-#: vcat-settings-menu.php:383
+#: vcat-settings-menu.php:454
 msgid ""
 " ><span> links </span></label><br>\r\n"
 "\t  \t  <label><input type='radio' name='vcat_geo_mini_align[align]' "
 "value='right' "
+msgstr ""
+
+#: vcat-settings-menu.php:465
+msgid ""
+"  \r\n"
+"\t<table><tr><td style='padding:0px; padding-right: 18px;'>\t\r\n"
+"\tBeitrag:\r\n"
+"\t\r\n"
+"\t</td><td style='padding:0px;'>\r\n"
+"\t<select name='vcat_geo_mini_color[postcolor]'>\r\n"
+"\t  <option "
+msgstr ""
+
+#: vcat-settings-menu.php:482
+msgid ""
+" value='gray'>Grau</option>\r\n"
+"    </select>\r\n"
+"\t\r\n"
+"\t</td></tr><tr><td style='padding:0px; padding-right: 18px;'>\t\r\n"
+"\tSeite:\r\n"
+"\t\r\n"
+"\t</td><td style='padding:0px;'>\r\n"
+"\t<select name='vcat_geo_mini_color[pagecolor]'>\r\n"
+"\t  <option "
 msgstr ""
 
 #: core/sidebar.php:2
@@ -1523,13 +1923,18 @@ msgstr ""
 msgid "http://www.vcat.de/unternehmen/aktuelles.html?type=100"
 msgstr ""
 
+#: core/sidebar.php:53
+msgid "Folgen Sie uns!"
+msgstr ""
+
 #: core/vcat-core.php:3
 msgid "sidebar.php"
 msgstr ""
 
 #: core/vcat-core.php:9
+#, fuzzy
 msgid "vcat_core_create_main_options_page"
-msgstr ""
+msgstr "vcat_geo_mini"
 
 #: core/vcat-core.php:14
 msgid "vcat-options"
@@ -1625,8 +2030,9 @@ msgid "</h2>"
 msgstr ""
 
 #: core/vcat-core.php:84
+#, fuzzy
 msgid "vcat_core_backend_footer"
-msgstr ""
+msgstr "vcat_geo_mini"
 
 #: core/vcat-core.php:86
 msgid "</div><!-- end of wrapper -->"
@@ -1660,17 +2066,74 @@ msgstr ""
 msgid "Longitude"
 msgstr ""
 
-#: custom/meta.php:44
+#: custom/meta.php:44 quickedit/meta.php:33
+msgid "Pin-Farbe"
+msgstr ""
+
+#: custom/meta.php:47
+msgid " value=''>Standard"
+msgstr ""
+
+#: custom/meta.php:48
+msgid " value='blue'>Blau"
+msgstr ""
+
+#: custom/meta.php:49
+msgid " value='red'>Rot"
+msgstr ""
+
+#: custom/meta.php:50
+msgid " value='yellow'>Gelb"
+msgstr ""
+
+#: custom/meta.php:51
+msgid " value='green'>Grün"
+msgstr ""
+
+#: custom/meta.php:52
+msgid " value='orange'>Orange"
+msgstr ""
+
+#: custom/meta.php:53
+msgid " value='purple'>Lila"
+msgstr ""
+
+#: custom/meta.php:54
+msgid " value='magenta'>Magenta"
+msgstr ""
+
+#: custom/meta.php:55
+msgid " value='cyan'>Cyan"
+msgstr ""
+
+#: custom/meta.php:56
+msgid " value='pink'>Rosa"
+msgstr ""
+
+#: custom/meta.php:57
+msgid " value='brown'>Braun"
+msgstr ""
+
+#: custom/meta.php:58
+msgid " value='beige'>Beige"
+msgstr ""
+
+#: custom/meta.php:59
+msgid " value='gray'>Grau"
+msgstr ""
+
+#: custom/meta.php:66
 msgid "Speichern"
 msgstr ""
 
-#: custom/meta.php:45
+#: custom/meta.php:67
 msgid "Löschen"
 msgstr ""
 
 #: quickedit/meta.php:9
+#, fuzzy
 msgid "VCAT Geo Plugin"
-msgstr ""
+msgstr "VCAT bei Xing"
 
 #: quickedit/meta.php:19
 msgid "PLZ:"
@@ -1678,6 +2141,59 @@ msgstr ""
 
 #: quickedit/meta.php:26
 msgid "Ort:"
+msgstr ""
+
+#: quickedit/meta.php:36
+msgid "Standard"
+msgstr ""
+
+#: quickedit/meta.php:37
+msgid "Blau"
+msgstr ""
+
+#: quickedit/meta.php:38
+#, fuzzy
+msgid "Rot"
+msgstr "ort"
+
+#: quickedit/meta.php:39
+msgid "Gelb"
+msgstr ""
+
+#: quickedit/meta.php:40
+msgid "Grün"
+msgstr ""
+
+#: quickedit/meta.php:41
+msgid "Orange"
+msgstr ""
+
+#: quickedit/meta.php:42
+msgid "Lila"
+msgstr ""
+
+#: quickedit/meta.php:43
+msgid "Magenta"
+msgstr ""
+
+#: quickedit/meta.php:44
+msgid "Cyan"
+msgstr ""
+
+#: quickedit/meta.php:45
+msgid "Rosa"
+msgstr ""
+
+#: quickedit/meta.php:46
+msgid "Braun"
+msgstr ""
+
+#: quickedit/meta.php:47
+msgid "Beige"
+msgstr ""
+
+#: quickedit/meta.php:48
+msgid "Grau"
 msgstr ""
 
 #~ msgid "VCAT bei Facebook"
@@ -1694,9 +2210,6 @@ msgstr ""
 
 #~ msgid "VCAT bei WordPress"
 #~ msgstr "VCAT bei WordPress"
-
-#~ msgid "VCAT bei Xing"
-#~ msgstr "VCAT bei Xing"
 
 #~ msgid "<h2> VCAT Einstellungen: </h2>"
 #~ msgstr "<h2> VCAT Einstellungen: </h2>"

@@ -3,7 +3,7 @@ Contributors: VCATconsulting, nida78
 Tags: EDULABS, VCAT, Geo-Coding, Geo-Location, Google-Maps, Shortcode
 Requires at least: 3.0
 Tested up to: 3.8
-Stable tag: 1.2
+Stable tag: 1.5
 Donate link: http://www.vcat.de/edulabs/ueber-vcat-edulabs/spenden/
 License: GPLv2
 
@@ -19,7 +19,7 @@ So you can show in a very simple way where you gathered some informations, took 
 - The current version uses an own sql-table to store and retrieve the GeoData.
 - The global settings can be set on an own dashboard page.
 - The Plugin ships a backend widget for entering the data on a post or page which can even be edited on the QuickEdit screen.
-- There are two shorcodes (1) to embed a large map with all posts/pages as markers and (2) a mini-map with the current one as marker.
+- There are two shortcodes (1) to embed a large map with all posts/pages as markers and (2) a mini-map with the current one as marker.
 
 
 Planned Features:
@@ -57,8 +57,12 @@ Further information how to use the shortcodes and their available options may be
 
 == Changelog ==
 
+= 1.5 =
+* coloured pin selection added (default values for posts/pages, overridden by shortcode option, rewritable for singlie posts/pages)
+* bug-fix: multiple mini-maps are working now
+
 = 1.2 =
-* micro-bug fix
+* micro bug-fix
 
 = 1.1 =
 * some backend css bug-fixes due to WP 3.8

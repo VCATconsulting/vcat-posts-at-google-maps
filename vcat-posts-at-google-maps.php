@@ -2,8 +2,8 @@
 /*
 Plugin Name: VCAT EDULABS Posts At Google Maps
 Plugin URI: http://www.vcat.de/edulabs/projekte/wordpress/geo-plugin/
-Description: Dieses Plugin zeigt die Lage der Posts und Pages in einer Google Map an. Die Lage wird durch die Latitude und Longitude des Punktes bestimmt.  Die Map wird über den Shortcode [vcat-dpagm] auf eine beliebige Seite eingebunden. (height & width im shortcode erlauben es die Größe anzupassen)  
-Version: 1.2
+Description: Dieses Plugin zeigt die Lage der Posts und Pages in einer Google Map an. Die Lage wird durch die Latitude und Longitude des Punktes bestimmt. Maps können über die Shortcodes [vcat-dpagm] & [vcat-dpagm-mini] auf eine beliebige Seite oder Artikel eingebunden werden. Verschiedene Attribute erlauben die manuelle Manipulation eines jeden Shortcodes.  
+Version: 1.5
 Author: VCAT Consulting GmbH (Nico Danneberg, Robin Kramer, Melanie Sommer)
 Author URI: http://www.vcat.de
 */
@@ -56,7 +56,9 @@ add_action('admin_footer', 'vcat_geo_quick_edit_javascript');					// is triggere
 add_filter('post_row_actions', 'vcat_geo_expand_quick_edit_link', 10, 2);		// allows to modify the row action links for non-hierarchical post types(e.g. posts)
 add_filter('page_row_actions', 'vcat_geo_expand_quick_edit_link', 10, 2);  		// allows to modify the row action links for hierarchical post types(e.g. pages)
 
-register_activation_hook( __FILE__, 'vcat_geo_db_install' );					// this hook will cause our function to run when the plugin is activated
+//register_activation_hook( __FILE__, 'vcat_geo_db_install' );					// this hook will cause our function to run when the plugin is activated
+add_action('init', 'vcat_geo_db_version_checker');								// this hook runs after wp loads completly but before other stuff is happening
+																				// due to the fact that the init even runs right after activating the Plugin we don'T need the other hook anymore
 
 add_filter( 'posts_clauses', 'vcat_geo_posts_clauses_filter', 10, 2 );			// adds own clauses to the standart wp_query request
 
@@ -73,7 +75,11 @@ $VCAT_MAP_DEFAULTS=array(
 	),
 	'zoom' => array('zoom' => '8'),
 	'target' => array('target' => 'blank'),
-	'align' => array( 'align' => 'left' )
+	'align' => array( 'align' => 'left' ),
+	'color' => array( 
+		'postcolor' => 'orange', 
+		'pagecolor' => 'gray'
+	)
 );
 
 $VCAT_MINI_MAP_DEFAULTS=array(
@@ -81,7 +87,11 @@ $VCAT_MINI_MAP_DEFAULTS=array(
 	'height' => array('height' => '200px'),
 	'zoom' => array('zoom' => '9'),
 	'target' => array('target' => 'blank'),
-	'align' => array( 'align' => 'left' )
+	'align' => array( 'align' => 'left' ),
+	'color' => array( 
+		'postcolor' => 'orange', 
+		'pagecolor' => 'gray'
+	)
 );
 
 																										// Parameter for: 
@@ -95,7 +105,7 @@ $legals=array(	'author', 'author_name', 'author__in', 'author__not_in', 								
 				'year', 'monthnum', 'w', 'day', 'hour', 'minute', 'second', 'm', 						// Date
 				'meta_key', 'meta_value', 'meta_value_num', 'meta_compare', 							// Costum Field/Meta
 				'perm', 																				// Permission
-				'center'																				// VCAT specials 
+				'center', 'postcolor', 'pagecolor'													// VCAT specials 
 				);		 
 
 
@@ -152,10 +162,17 @@ function vcat_geo_display_posts_at_google_maps( $atts ){
 		'align' => $options['align']
 	), $atts ) );
 
+	if (isset($atts['center'])&&$atts['center']!='dynamic') {
+		$latlng = vcat_geo_get_lat_lng_by_address($atts['center']);
+		$center_lat = $latlng['lat'];
+		$center_lng = $latlng['lng'];
+		unset($atts['center']);
+	}
+
 	vcat_geo_filter_check($atts);
 
 	if (is_array($atts)) {
-		$filter = array_merge($atts, array('dynamic' => $options['dynamic']));
+		$filter = array_merge(array('dynamic' => $options['dynamic']), $atts);
 	} else {
 		$filter = array('dynamic' => $options['dynamic']);
 	}
@@ -164,7 +181,7 @@ function vcat_geo_display_posts_at_google_maps( $atts ){
 		<div id='map_canvas' style='width:" . $width . ";height:" . $height .";' class='align-" . $align . "'></div>
 		<script type='text/javascript'>
 			jQuery(document).ready(function(){
-				vcatInitialize(" . $center_lat . ", " . $center_lng . ", " . $zoom . ");
+				vcatInitialize(" . $center_lat . ", " . $center_lng . ", " . $zoom . ", '');
 				" . vcat_geo_set_markers( $target , $filter ) . "
 			});
 		</script>
@@ -205,7 +222,8 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
 		get_option( 'vcat_geo_mini_height', $VCAT_MINI_MAP_DEFAULTS[ 'height' ] ),
 		get_option( 'vcat_geo_mini_zoom', $VCAT_MINI_MAP_DEFAULTS[ 'zoom' ] ),
 		get_option( 'vcat_geo_mini_target', $VCAT_MINI_MAP_DEFAULTS[ 'target' ] ),
-		get_option( 'vcat_geo_mini_align', $VCAT_MINI_MAP_DEFAULTS[ 'align' ] )
+		get_option( 'vcat_geo_mini_align', $VCAT_MINI_MAP_DEFAULTS[ 'align' ] ),
+		get_option( 'vcat_geo_mini_color', $VCAT_MINI_MAP_DEFAULTS[ 'color' ])
 	);	
 
 	extract( shortcode_atts( array(
@@ -223,13 +241,28 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
 	$post_title =  $post->post_title;
 	$post_link = get_permalink( $post->post_id );
 	$post_address = $post->str . " " . $post->plz . " " . $post->ort;
-	$image_url = ($post->post_type=='page') ? plugins_url('/images/vcat-gray-dot.png', __FILE__) : plugins_url('/images/vcat-orange-dot.png', __FILE__);
+	
+	if (isset($post->color)) {
+		$image_url = plugins_url('/images/vcat-'.$post->color.'-dot.png', __FILE__);
+	}else {
+		if( $post->post_type=='page' ) {
+			 $image_url = plugins_url('/images/vcat-'.$options['pagecolor'].'-dot.png', __FILE__);
+		} else {
+			 $image_url = plugins_url('/images/vcat-'.$options['postcolor'].'-dot.png', __FILE__); 
+		}
+	}
+
+	ob_start();
+	var_dump(	$options, $zoom	);
+	$contents = ob_get_contents();
+	ob_end_clean();
+	error_log($contents);	
 
 	return "
-		<div id='map_canvas' style='width:" . $width . ";height:" . $height .";' class='align-" . $align . "'></div>
+		<div id='map_canvas".$post->post_id."' style='width:" . $width . ";height:" . $height .";' class='align-" . $align . "'></div>
 		<script type='text/javascript'>
 			jQuery(document).ready(function(){
-				vcatInitialize(" . $center_lat . ", " . $center_lng . ", " . $zoom . ");
+				vcatInitialize(" . $center_lat . ", " . $center_lng . ", " . $zoom . ", " . $post->post_id . ");
 				vcatAddMarker(" . $center_lat . ", " . $center_lng . ", '" . $post_address . "', '" . $post_title . "', '" . $post_link . "', '" . $image_url . "', '" . $target . "' );
 			});
 		</script>
@@ -265,6 +298,26 @@ function vcat_geo_get_lat_lng_by_address( $address ) {
  * @return string	the calls of a JavaScript function to add a marker per Post or Page
  */
 function vcat_geo_set_markers( $target, $filter ) {
+	global $VCAT_MAP_DEFAULTS;
+	$options = get_option( 'vcat_geo_color', $VCAT_MAP_DEFAULTS[ 'color' ]); 
+	
+	// ob_start();
+	// var_dump(	$filter	);
+	// $contents = ob_get_contents();
+	// ob_end_clean();
+	// error_log($contents);
+	
+	if (isset($filter['postcolor'])&&file_exists( dirname(__FILE__).'/images/vcat-'.$filter['postcolor'].'-dot.png')) {
+		$postcolor=$filter['postcolor'];
+	}else {
+		$postcolor=$options['postcolor'];
+	}
+	if (isset($filter['pagecolor'])&&file_exists( dirname(__FILE__).'/images/vcat-'.$filter['pagecolor'].'-dot.png')) {
+		$pagecolor=$filter['pagecolor'];
+	}else {
+		$pagecolor=$options['pagecolor'];
+	}
+	
 	
 	$args = array( 'post_type' => array('page','post'), 'posts_per_page' => -1);
 	
@@ -274,7 +327,7 @@ function vcat_geo_set_markers( $target, $filter ) {
 
 	$map_posts = new WP_Query( $args );
 	
-	if ($filter['center']=='dynamic'||$filter['dynamic']=='TRUE') {
+	if ($filter['center']=='dynamic') {
 		$out = "var bounds = new google.maps.LatLngBounds ();\n";
 	} else {
 		$out ="";
@@ -289,24 +342,29 @@ function vcat_geo_set_markers( $target, $filter ) {
 			$post_address = $post->str . " " . $post->plz . " " . $post->ort;
 			$post_lat = $post->lat;
 			$post_lng = $post->lng;			
-				
-			if( $post->post_type=='page' ) {
-				 $image_url = plugins_url('/images/vcat-gray-dot.png', __FILE__);
-			} else {
-				 $image_url = plugins_url('/images/vcat-orange-dot.png', __FILE__); 
+			
+			if (isset($post->color)) {
+				$image_url = plugins_url('/images/vcat-'.$post->color.'-dot.png', __FILE__);
+			}	else {
+				if( $post->post_type=='page' ) {
+					 $image_url = plugins_url('/images/vcat-'.$pagecolor.'-dot.png', __FILE__);
+				} else {
+					 $image_url = plugins_url('/images/vcat-'.$postcolor.'-dot.png', __FILE__); 
+				}
 			}
+			
 						
 			if( $post_lat != "" && $post_lng != "" ){
 	       		$out .= "vcatAddMarker( " . $post_lat . ", " . $post_lng . ", '" . $post_address . "', '" . $post_title . "', '" . $post_link . "', '" . $image_url . "', '" . $target . "' );\n";
 				
-				if ($filter['center']=='dynamic'||$filter['dynamic']=='TRUE') {
+				if ($filter['center']=='dynamic') {
 					$out .= "bounds.extend ( new google.maps.LatLng ( $post_lat, $post_lng ) );\n";
 				}
 			}
 		}
 	}
 
-	if ($filter['center']=='dynamic'||$filter['dynamic']=='TRUE') {
+	if ($filter['center']=='dynamic') {
 		$out .= "map.fitBounds(bounds); ";
 	} 
 	

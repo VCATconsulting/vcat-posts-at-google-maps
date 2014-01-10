@@ -50,7 +50,7 @@ if( !function_exists( 'vcat_core_get_backend_sidebar' ) ) {
 		    	<?php echo vcat_core_get_cached_feed('http://www.vcat.de/unternehmen/aktuelles.html?type=100'); ?>
 		    </div>
 		    <div id="follow_vcat">
-		    	<h3>Folgen Sie uns!</h3>
+		    	<h3><?php _e('Folgen Sie uns!', 'vcgmapsatposts') ?></h3>
 		    	<ul>
 		    		<li><a href="https://www.facebook.com/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/facebook-24x24.png" alt="VCAT bei Facebook"/></a></li>
 		    		<li><a href="https://plus.google.com/111862866638114567280/posts" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/google-24x24.png" alt="VCAT bei Google+"/></a></li>

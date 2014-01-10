@@ -99,19 +99,30 @@ function vcat_geo_quick_edit_javascript() {
  	* @param plz	the postcode value
  	* @param ort	the cityname value
  	* @param nonce	the security value
+ 	* @param color	
  	*/
-    function insert_data(str, plz, ort, nonce) {
+    function insert_data(str, plz, ort, nonce, color) {
         // revert Quick Edit menu so that it refreshes properly
         inlineEditPost.revert();
         var strInput = document.getElementById('quick_edit_str');
         var plzInput = document.getElementById('quick_edit_plz');
         var ortInput = document.getElementById('quick_edit_ort');
       	var nonceInput = document.getElementById('vcat_quickedit_field_nonce');
+      	var colorInput = document.getElementById('quick_edit_color');
       	
-      	nonceInput.value = nonce;
+		//only way to access the correct option per js
+		for(var i=colorInput.length-1; i>0; i--) { 
+			if(colorInput[i].value==color) {
+				colorInput.options[i].defaultSelected = true;
+			}else{
+				colorInput.options[i].defaultSelected = false;
+			}
+		}
+		
+		nonceInput.value = nonce;
 		strInput.value = str;
 		plzInput.value = plz;
-		ortInput.value = ort;		
+		ortInput.value = ort;
     }
     </script>
     <?php
@@ -140,10 +151,11 @@ function vcat_geo_expand_quick_edit_link($actions, $post) {
 	$str = $post->str;
 	$plz = $post->plz;
 	$ort = $post->ort;
+	$color = $post->color;
 		
     $actions['inline hide-if-no-js'] = '<a href="#" class="editinline" title="';
     $actions['inline hide-if-no-js'] .= esc_attr( __( 'Edit this item inline' ) ) . '" ';
-    $actions['inline hide-if-no-js'] .= " onclick=\"insert_data('{$str}','{$plz}','{$ort}','{$nonce}')\">";
+    $actions['inline hide-if-no-js'] .= " onclick=\"insert_data('{$str}','{$plz}','{$ort}','{$nonce}','{$color}')\">";
     $actions['inline hide-if-no-js'] .= __( 'Quick&nbsp;Edit' );
     $actions['inline hide-if-no-js'] .= '</a>';
     return $actions;   

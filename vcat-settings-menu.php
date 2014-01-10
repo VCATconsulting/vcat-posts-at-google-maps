@@ -44,7 +44,7 @@ function vcat_geo_add_plugin_settings_link( $links ) {
 function vcat_geo_add_plugins_list_info( $list ) {
 	array_push( $list, array(
 		'name' => 'VCAT EDULABS Posts at Google Maps (GEO-Plugin)',
-		'image' => plugins_url( 'vcat-posts-at-google-maps.png', __FILE__ ),
+		'image' => plugins_url( 'images/banner_geopl_wp.jpg', __FILE__ ),
 		'settings' => 'admin.php?page=vcat_geo_settings'
 	) );
 	return $list;
@@ -78,6 +78,7 @@ function vcat_geo_register_settings() {
 	register_setting( 'vcat_geo_settings', 'vcat_geo_zoom', 'vcat_geo_settings_validate_zoom'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_target', 'vcat_geo_settings_validate_target'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_align', 'vcat_geo_settings_validate_align'); 
+	register_setting( 'vcat_geo_settings', 'vcat_geo_color', 'vcat_geo_settings_validate_color'); 
 
 	add_settings_section('vcat_geo_map_section', __('Große Karte','vcgmapsatposts'), 'vcat_geo_map_headline', 'vcat_geo');
 
@@ -87,12 +88,14 @@ function vcat_geo_register_settings() {
 	add_settings_field('vcat_geo_map_zoom', __('Zoom','vcgmapsatposts'), 'vcat_geo_map_zoombox', 'vcat_geo', 'vcat_geo_map_section');
 	add_settings_field('vcat_geo_map_target', __('Ziel','vcgmapsatposts'), 'vcat_geo_map_targetbox', 'vcat_geo', 'vcat_geo_map_section');
 	add_settings_field('vcat_geo_map_align', __('Ausrichtung','vcgmapsatposts'), 'vcat_geo_map_alignbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_color', __('Farbe','vcgmapsatposts'), 'vcat_geo_map_colorbox', 'vcat_geo', 'vcat_geo_map_section');
 	
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_width', 'vcat_geo_settings_validate_px_percent_mini'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_height', 'vcat_geo_settings_validate_px_mini'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_zoom', 'vcat_geo_settings_validate_zoom_mini'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_target', 'vcat_geo_settings_validate_target_mini'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_align', 'vcat_geo_settings_validate_align_mini'); 
+	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_color', 'vcat_geo_settings_validate_color_mini'); 
 
 	add_settings_section('vcat_geo_mini_map_section', __('Kleine Karte','vcgmapsatposts'), 'vcat_geo_mini_map_headline', 'vcat_geo_mini');
 
@@ -101,6 +104,7 @@ function vcat_geo_register_settings() {
 	add_settings_field('vcat_geo_mini_map_zoom', __('Zoom','vcgmapsatposts'), 'vcat_geo_mini_map_zoombox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
 	add_settings_field('vcat_geo_mini_map_target', __('Ziel','vcgmapsatposts'), 'vcat_geo_mini_map_targetbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
 	add_settings_field('vcat_geo_mini_map_align', __('Ausrichtung','vcgmapsatposts'), 'vcat_geo_mini_map_alignbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_mini_map_color', __('Farbe','vcgmapsatposts'), 'vcat_geo_mini_map_colorbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
 }
 
 /**
@@ -108,7 +112,7 @@ function vcat_geo_register_settings() {
  */
 function vcat_geo_map_headline() {
 echo __('Hier können sie die Standardeinstellungen für die große Google Map Karte einstellen, Höhe und Breite bestimmen die Größe der Karte, 
-	  während Zentrum und Zoom die Standartausrichtung der Karte bestimmen. Das Ziel bestimmt wohin die Links der verschiedenen Marker führt. ','vcgmapsatposts');
+	  während Zentrum und Zoom die Standardausrichtung der Karte bestimmen. Das Ziel bestimmt wohin die Links der verschiedenen Marker führt. ','vcgmapsatposts');
 }
 
 /**
@@ -199,9 +203,58 @@ echo "<label><input type='radio' name='vcat_geo_target[target]' value='blank' ".
 function vcat_geo_map_alignbox() {
 	global $VCAT_MAP_DEFAULTS; 	
 	$align = get_option( 'vcat_geo_align', $VCAT_MAP_DEFAULTS[ 'align' ]);
-
+	
 	echo "<label><input type='radio' name='vcat_geo_align[align]' value='left' ".(($align['align']=='left')? "checked": "").__(" ><span> links </span></label><br>
 	  	  <label><input type='radio' name='vcat_geo_align[align]' value='right' ",'vcgmapsatposts').(($align['align']=='right')? "checked": "").__("><span> rechts </span></label>",'vcgmapsatposts');
+}
+
+/**
+ * displays the dropdown menu for the pin colors of the big map
+ */
+function vcat_geo_map_colorbox() {
+	global $VCAT_MAP_DEFAULTS; 	
+	$color = get_option( 'vcat_geo_color', $VCAT_MAP_DEFAULTS['color']);
+	
+	echo __("  
+	<table><tr><td style='padding:0px; padding-right: 10px;'>	
+	Beitr&auml;ge:
+	
+	</td><td style='padding:0px;'>
+	<select name='vcat_geo_color[postcolor]'>
+	  <option ", 'vcgmapsatposts').(($color['postcolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='red')? "selected": "").__(" value='red'>Rot</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='green')? "selected": "").__(" value='green'>Grün</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
+    </select>
+	
+	</td></tr><tr><td style='padding:0px; padding-right: 10px;'>	
+	Seiten:
+	
+	</td><td style='padding:0px;'>
+	<select name='vcat_geo_color[pagecolor]'>
+	  <option ", 'vcgmapsatposts').(($color['pagecolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='red')? "selected": "").__(" value='red'>Rot</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='green')? "selected": "").__(" value='green'>Grün</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
+    </select>
+	
+	</td></tr></table>", 'vcgmapsatposts');
 }
 
 /**
@@ -305,11 +358,29 @@ function vcat_geo_settings_validate_align( $input ) {
 }
 
 /**
+ * validates the color input, checks if it's a word input, and sets the setting back if the input wasn't valid, 
+ * (due to the value's coming from a drop-box it seems to be senseless, but WP request always a validation)
+ */
+function vcat_geo_settings_validate_color( $input ) {
+	global $VCAT_MAP_DEFAULTS; 	
+	$color = get_option( 'vcat_geo_color', $VCAT_MAP_DEFAULTS[ 'color' ] );
+
+	foreach ($input as $key => $value) {
+		$newinput[ $key ] = trim( $value );
+		if( !preg_match( '/^\w+$/', $newinput[ $key ] ) ) {
+			$newinput[ $key ] = $color[ $key ];
+		}
+	}
+
+	return $newinput;
+}
+
+/**
  * displays the description for the second(small map) settings section
  */
 function vcat_geo_mini_map_headline() {
 echo __('Hier können sie die Standardeinstellungen für die kleinen Google Map Karten einstellen, Höhe und Breite bestimmen die Größe der Karte, 
-	  die Standartausrichtung bildet der jeweilige Post auf der die Minimap zusehen ist zusammen mit dem Zoom. Das Ziel bestimmt wohin die Links der verschiedenen Marker führt.','vcgmapsatposts');
+	  die Standardausrichtung bildet der jeweilige Post auf der die Minimap zusehen ist zusammen mit dem Zoom. Das Ziel bestimmt wohin die Links der verschiedenen Marker führt.','vcgmapsatposts');
 }
 
 /**
@@ -385,6 +456,56 @@ function vcat_geo_mini_map_alignbox() {
 }
 
 /**
+ * displays the dropdown menu for the pin colors of the big map
+ */
+function vcat_geo_mini_map_colorbox() {
+	global $VCAT_MINI_MAP_DEFAULTS; 	
+	$color = get_option( 'vcat_geo_mini_color', $VCAT_MINI_MAP_DEFAULTS[ 'color' ]);
+
+	echo __("  
+	<table><tr><td style='padding:0px; padding-right: 18px;'>	
+	Beitrag:
+	
+	</td><td style='padding:0px;'>
+	<select name='vcat_geo_mini_color[postcolor]'>
+	  <option ", 'vcgmapsatposts').(($color['postcolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='red')? "selected": "").__(" value='red'>Rot</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='green')? "selected": "").__(" value='green'>Grün</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
+      <option ", 'vcgmapsatposts').(($color['postcolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
+    </select>
+	
+	</td></tr><tr><td style='padding:0px; padding-right: 18px;'>	
+	Seite:
+	
+	</td><td style='padding:0px;'>
+	<select name='vcat_geo_mini_color[pagecolor]'>
+	  <option ", 'vcgmapsatposts').(($color['pagecolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='red')? "selected": "").__(" value='red'>Rot</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='green')? "selected": "").__(" value='green'>Grün</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
+      <option ", 'vcgmapsatposts').(($color['pagecolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
+    </select>
+	
+	</td></tr></table>", 'vcgmapsatposts');
+}
+
+
+/**
  * validates the mini width input, checks if it's a pixel or percent input, and sets the setting back if the input wasn't valid
  */
 function vcat_geo_settings_validate_px_percent_mini($input) {
@@ -444,12 +565,29 @@ return $newinput;
  * validates the mini align input, checks if it's a word input, and sets the setting back if the input wasn't valid
  */
 function vcat_geo_settings_validate_align_mini( $input ) {
-	global $VCAT_MAP_DEFAULTS; 	
+	global $VCAT_MINI_MAP_DEFAULTS; 	
 	$align = get_option( 'vcat_geo_mini_align', $VCAT_MINI_MAP_DEFAULTS[ 'align' ] );
 
 	$newinput[ 'align' ] = trim( $input[ 'align' ] );
 	if( !preg_match( '/^\w+$/', $newinput[ 'align' ] ) ) {
 		$newinput[ 'align' ] = $align[ 'align' ];
+	}
+
+	return $newinput;
+}
+
+/**
+ * validates the color input, checks if it's a word input, and sets the setting back if the input wasn't valid, 
+ */
+function vcat_geo_settings_validate_color_mini( $input ) {
+	global $VCAT_MINI_MAP_DEFAULTS; 	
+	$color = get_option( 'vcat_geo_mini_color', $VCAT_MINI_MAP_DEFAULTS[ 'color' ] );
+
+	foreach ($input as $key => $value) {
+		$newinput[ $key ] = trim( $value );
+		if( !preg_match( '/^\w+$/', $newinput[ $key ] ) ) {
+			$newinput[ $key ] = $color[ $key ];
+		}
 	}
 
 	return $newinput;

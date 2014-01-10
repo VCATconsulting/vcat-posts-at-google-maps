@@ -1,6 +1,22 @@
 <?php
-global $VCAT_GEO_PI_TABLE;
+global $VCAT_GEO_PI_TABLE, $vcat_db_version ;
 $VCAT_GEO_PI_TABLE  = "wp_vcat_geo_plugin";
+$vcat_db_version = "1.1";
+
+
+/*
+ * checks if the current database is the latest one, else starts the db_install to update 
+ * (due to that updating a plugin won't activate the __FILE__ hook)
+ */
+function vcat_geo_db_version_checker() {
+	global $vcat_db_version;
+	
+	$current_db_version = get_option("vcat_db_version");	  
+
+	if ($current_db_version<$vcat_db_version) {
+		vcat_geo_db_install();
+	}
+}
 
 /**
  * creates a new table in the database for the geo datas
@@ -10,9 +26,7 @@ function vcat_geo_db_install() {
    global $VCAT_GEO_PI_TABLE ;
    global $vcat_db_version;
 
-   $vcat_db_version = "1.0";
-   
-   $sql = "CREATE TABLE IF NOT EXISTS $VCAT_GEO_PI_TABLE (
+	$sql = "CREATE TABLE $VCAT_GEO_PI_TABLE (
       id INTEGER NOT NULL AUTO_INCREMENT,
       post_id INTEGER NOT NULL,
       lat FLOAT NOT NULL,
@@ -20,13 +34,14 @@ function vcat_geo_db_install() {
       str LONGTEXT, 
       plz INTEGER(5) ZEROFILL, 
       ort VARCHAR(20), 
+      color VARCHAR(20),
       UNIQUE KEY id (id)
     );";
+		
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	$echo = dbDelta( $sql );
 
-   require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-   dbDelta( $sql );
- 
-   add_option( "vcat_db_version", $vcat_db_version );
+	update_option( "vcat_db_version", $vcat_db_version );   		
 }
 
 /**
@@ -38,7 +53,7 @@ function vcat_geo_install_data( $data ) {
  	global $wpdb;
 	global $post;
  	global $VCAT_GEO_PI_TABLE ;
- 	
+	
  	require_once( ABSPATH . 'wp-config.php');
 	
 	$current_data = false;
@@ -56,7 +71,7 @@ function vcat_geo_install_data( $data ) {
 		);
   	}
     
-	if( !is_null( $data ) ) {
+	if( !is_null( $data['ort']||!is_null($data['plz']) ) ) {// atleast ort or plz has to exist
 		$latlng = vcat_geo_get_lat_lng_by_address( $data['str']." ".$data['plz']." ".$data['ort'] );
 	}  
 	
@@ -113,7 +128,7 @@ function vcat_geo_posts_clauses_filter($clauses){
     $join .= " LEFT JOIN $VCAT_GEO_PI_TABLE ON $VCAT_GEO_PI_TABLE.post_id = $wpdb->posts.ID";
 	
 	$fields = &$clauses['fields'];
-	$fields .= ", $VCAT_GEO_PI_TABLE.post_id, $VCAT_GEO_PI_TABLE.lat, $VCAT_GEO_PI_TABLE.lng, $VCAT_GEO_PI_TABLE.str, $VCAT_GEO_PI_TABLE.plz, $VCAT_GEO_PI_TABLE.ort";
+	$fields .= ", $VCAT_GEO_PI_TABLE.post_id, $VCAT_GEO_PI_TABLE.lat, $VCAT_GEO_PI_TABLE.lng, $VCAT_GEO_PI_TABLE.str, $VCAT_GEO_PI_TABLE.plz, $VCAT_GEO_PI_TABLE.ort, $VCAT_GEO_PI_TABLE.color";
 
 	return $clauses;
 }
