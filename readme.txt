@@ -2,8 +2,8 @@
 Contributors: VCATconsulting, nida78
 Tags: EDULABS, VCAT, Geo-Coding, Geo-Location, Google-Maps, Shortcode
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.5.1
+Tested up to: 3.9.1
+Stable tag: 1.5.2
 Donate link: http://www.vcat.de/edulabs/ueber-vcat-edulabs/spenden/
 License: GPLv2
 
@@ -56,6 +56,12 @@ Further information how to use the shortcodes and their available options may be
 
 
 == Changelog ==
+
+= 1.5.2 =
+* bug fix: deleting location not possible, when special pin-color was chosen
+
+= 1.5.1 =
+* micro bug-fix: reuploaded images
 
 = 1.5 =
 * coloured pin selection added (default values for posts/pages, overridden by shortcode option, rewritable for singlie posts/pages)

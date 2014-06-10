@@ -54,6 +54,12 @@ function vcat_geo_install_data( $data ) {
 	global $post;
  	global $VCAT_GEO_PI_TABLE ;
 	
+	ob_start();
+	var_dump(	$data	);
+	$contents = ob_get_contents();
+	ob_end_clean();
+	error_log($contents);
+	
  	require_once( ABSPATH . 'wp-config.php');
 	
 	$current_data = false;
@@ -76,7 +82,7 @@ function vcat_geo_install_data( $data ) {
 	}  
 	
     if( $current_data ) { // latlng data allready exist
-        if( is_null( $data ) )  { // data have to be removed
+        if( is_null( $data ) || (count($data)==1 && !is_null($data["color"]) ) )  { // data have to be removed
 			vcat_geo_delete_data();
 		} else  { // update existing entry
         	$data = array_merge( $data, $latlng );
@@ -122,7 +128,9 @@ function vcat_geo_install_data( $data ) {
  */
 function vcat_geo_posts_clauses_filter($clauses){
 
-	global $wpdb, $VCAT_GEO_PI_TABLE, $post;
+	global $wpdb;
+    global $VCAT_GEO_PI_TABLE ;
+	global $post;
 	
     $join = &$clauses['join'];
     $join .= " LEFT JOIN $VCAT_GEO_PI_TABLE ON $VCAT_GEO_PI_TABLE.post_id = $wpdb->posts.ID";

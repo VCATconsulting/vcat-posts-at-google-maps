@@ -44,7 +44,7 @@ function vcat_geo_add_plugin_settings_link( $links ) {
 function vcat_geo_add_plugins_list_info( $list ) {
 	array_push( $list, array(
 		'name' => 'VCAT EDULABS Posts at Google Maps (GEO-Plugin)',
-		'image' => plugins_url( 'images/banner_geopl_wp.jpg', __FILE__ ),
+		'image' => plugins_url( 'vcat-posts-at-google-maps.png', __FILE__ ),
 		'settings' => 'admin.php?page=vcat_geo_settings'
 	) );
 	return $list;

@@ -3,7 +3,7 @@
 Plugin Name: VCAT EDULABS Posts At Google Maps
 Plugin URI: http://www.vcat.de/edulabs/projekte/wordpress/geo-plugin/
 Description: Dieses Plugin zeigt die Lage der Posts und Pages in einer Google Map an. Die Lage wird durch die Latitude und Longitude des Punktes bestimmt. Maps können über die Shortcodes [vcat-dpagm] & [vcat-dpagm-mini] auf eine beliebige Seite oder Artikel eingebunden werden. Verschiedene Attribute erlauben die manuelle Manipulation eines jeden Shortcodes.  
-Version: 1.5.1
+Version: 1.5.2
 Author: VCAT Consulting GmbH (Nico Danneberg, Robin Kramer, Melanie Sommer)
 Author URI: http://www.vcat.de
 */
@@ -94,7 +94,7 @@ $VCAT_MINI_MAP_DEFAULTS=array(
 	)
 );
 
-																										// Parameter for: 
+																										// Shortcode-Filter-Parameter for: 
 $legals=array(	'author', 'author_name', 'author__in', 'author__not_in', 								// Author												
  				'cat', 'category_name', 'category__and', 'category__in', 'category__not_in', 			// Category
 				'tag', 'tag_id', 'tag__and', 'tag__in', 'tag__not_in', 'tag_slug__and', 'tag_slug__in', // Tag
@@ -105,7 +105,7 @@ $legals=array(	'author', 'author_name', 'author__in', 'author__not_in', 								
 				'year', 'monthnum', 'w', 'day', 'hour', 'minute', 'second', 'm', 						// Date
 				'meta_key', 'meta_value', 'meta_value_num', 'meta_compare', 							// Costum Field/Meta
 				'perm', 																				// Permission
-				'center', 'postcolor', 'pagecolor'													// VCAT specials 
+				'center', 'postcolor', 'pagecolor'														// VCAT specials 
 				);		 
 
 
@@ -252,12 +252,6 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
 		}
 	}
 
-	ob_start();
-	var_dump(	$options, $zoom	);
-	$contents = ob_get_contents();
-	ob_end_clean();
-	error_log($contents);	
-
 	return "
 		<div id='map_canvas".$post->post_id."' style='width:" . $width . ";height:" . $height .";' class='align-" . $align . "'></div>
 		<script type='text/javascript'>
@@ -300,12 +294,6 @@ function vcat_geo_get_lat_lng_by_address( $address ) {
 function vcat_geo_set_markers( $target, $filter ) {
 	global $VCAT_MAP_DEFAULTS;
 	$options = get_option( 'vcat_geo_color', $VCAT_MAP_DEFAULTS[ 'color' ]); 
-	
-	// ob_start();
-	// var_dump(	$filter	);
-	// $contents = ob_get_contents();
-	// ob_end_clean();
-	// error_log($contents);
 	
 	if (isset($filter['postcolor'])&&file_exists( dirname(__FILE__).'/images/vcat-'.$filter['postcolor'].'-dot.png')) {
 		$postcolor=$filter['postcolor'];
