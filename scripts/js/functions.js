@@ -45,7 +45,7 @@ function vcatAddMarker( lat, lng, address, title, link, image, target ) {
     });
 
 	var infowindow = new google.maps.InfoWindow({ 
-		content: '<a href="' + link + '" target="_' + target + '">' + title + '</a><br /><small><font color="#000000">' + address + '</font></small>', 
+		content: '<a href="' + link + '" target="_' + target + '">' + title + '</a><br /><small><font color="#000000">' + address + '</font></small>'', 
 	});
 	google.maps.event.addListener(marker, 'click', (function (m) {
 	    return function() {
