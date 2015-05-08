@@ -3,7 +3,7 @@
 Plugin Name: VCAT EDULABS Posts At Google Maps
 Plugin URI: http://www.vcat.de/edulabs/projekte/wordpress/geo-plugin/
 Description: Dieses Plugin zeigt die Lage der Posts und Pages in einer Google Map an. Die Lage wird durch die Latitude und Longitude des Punktes bestimmt. Maps können über die Shortcodes [vcat-dpagm] & [vcat-dpagm-mini] auf eine beliebige Seite oder Artikel eingebunden werden. Verschiedene Attribute erlauben die manuelle Manipulation eines jeden Shortcodes.  
-Version: 1.6.1
+Version: 1.6.2
 Author: VCAT Consulting GmbH (Nico Danneberg, Daniel Dziamski, Robin Kramer, Melanie Sommer)
 Author URI: http://www.vcat.de
 */
@@ -330,18 +330,30 @@ function vcat_geo_get_lat_lng_by_address( $address ) {
  * @return array address
  */
 function vcat_geo_get_address_by_lat_lng( $latlng ) {
-	if( $latlng == "" || !isset( $latlng ) || $latlng == null )
-		return array( "", "" , "" );
+	if( $latlng == "" || !isset( $latlng ) || $latlng == null ) {
+		return array( "", "", "" );
+	}
+
 	$req = 'http://maps.googleapis.com/maps/api/geocode/xml?latlng=' . $latlng. '&sensor=false';
 	
-	$str = file_get_contents( $req );
-	$xml = new SimpleXMLElement( $str );
-	
-	$str = explode(",",$xml->result[0]->formatted_address)[0];
-	$plz = explode(" ",explode(",",$xml->result[0]->formatted_address)[1])[1];
-	$ort = explode(" ",explode(",",$xml->result[0]->formatted_address)[1])[2];
-	
-	return array('ort'=>$ort, 'plz'=>$plz, 'str'=>$str);
+	if ( $str = file_get_contents( $req ) ) {
+
+		if ( $xml = new SimpleXMLElement( $str ) ) {
+
+			if ( isset( $xml->result[0]->formatted_address ) ) {
+				$formatted_address_parts = explode( ',', $xml->result[0]->formatted_address );
+				$plz_ort_parts           = explode( ',', $formatted_address_parts[1] );
+
+				$str = $formatted_address_parts[0];
+				$plz = $plz_ort_parts[0];
+				$ort = $plz_ort_parts[1];
+
+				return array( 'ort' => $ort, 'plz' => $plz, 'str' => $str );
+			}
+		}
+	}
+
+	return false;
 }
 
 /**
