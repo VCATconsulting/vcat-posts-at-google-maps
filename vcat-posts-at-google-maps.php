@@ -3,14 +3,14 @@
 Plugin Name: VCAT EDULABS Posts At Google Maps
 Plugin URI: http://www.vcat.de/edulabs/projekte/wordpress/geo-plugin/
 Description: Dieses Plugin zeigt die Lage der Posts und Pages in einer Google Map an. Die Lage wird durch die Latitude und Longitude des Punktes bestimmt. Maps können über die Shortcodes [vcat-dpagm] & [vcat-dpagm-mini] auf eine beliebige Seite oder Artikel eingebunden werden. Verschiedene Attribute erlauben die manuelle Manipulation eines jeden Shortcodes.  
-Version: 1.5.2
-Author: VCAT Consulting GmbH (Nico Danneberg, Robin Kramer, Melanie Sommer)
+Version: 1.6
+Author: VCAT Consulting GmbH (Nico Danneberg, Daniel Dziamski, Robin Kramer, Melanie Sommer)
 Author URI: http://www.vcat.de
 */
 
 /**
  * @package VCAT EDULABS Posts At Google Maps
- * @author VCAT Consulting GmbH (Nico Danneberg, Robin Kramer, Melanie Sommer)
+ * @author VCAT Consulting GmbH (Nico Danneberg, Daniel Dziamski, Robin Kramer, Melanie Sommer)
  * @copyright GNU GPL v2
  */
 
@@ -62,7 +62,7 @@ add_action('init', 'vcat_geo_db_version_checker');								// this hook runs afte
 
 add_filter( 'posts_clauses', 'vcat_geo_posts_clauses_filter', 10, 2 );			// adds own clauses to the standart wp_query request
 
-global $VCAT_MAP_DEFAULTS, $VCAT_MINI_MAP_DEFAULTS, $legals;
+global $VCAT_MAP_DEFAULTS, $VCAT_MINI_MAP_DEFAULTS, $VCAT_PIN_COLORS, $legals;
 
 $VCAT_MAP_DEFAULTS=array(
 	'width' => array('width' => '100%'),
@@ -79,7 +79,9 @@ $VCAT_MAP_DEFAULTS=array(
 	'color' => array( 
 		'postcolor' => 'orange', 
 		'pagecolor' => 'gray'
-	)
+	),
+	'margin' => array('margin' => '0px'),
+	'padding' => array('padding' => '0px')
 );
 
 $VCAT_MINI_MAP_DEFAULTS=array(
@@ -94,6 +96,20 @@ $VCAT_MINI_MAP_DEFAULTS=array(
 	)
 );
 
+$VCAT_PIN_COLORS=array(
+	'blue'    => __( 'Blue', 'vcgmapsatposts' ),
+	'red'     => __( 'Red', 'vcgmapsatposts' ),
+	'yellow'  => __( 'Yellow', 'vcgmapsatposts' ),
+	'green'   => __( 'Green', 'vcgmapsatposts' ),
+	'orange'  => __( 'Orange', 'vcgmapsatposts' ),
+	'purple'  => __( 'Purple', 'vcgmapsatposts' ),
+	'magenta' => __( 'Magenta', 'vcgmapsatposts' ),
+	'cyan'    => __( 'Cyan', 'vcgmapsatposts' ),
+	'pink'    => __( 'Pink', 'vcgmapsatposts' ),
+	'brown'   => __( 'Brown', 'vcgmapsatposts' ),
+	'beige'   => __( 'Beige', 'vcgmapsatposts' ),
+	'gray'    => __( 'Gray', 'vcgmapsatposts' )
+);
 																										// Shortcode-Filter-Parameter for: 
 $legals=array(	'author', 'author_name', 'author__in', 'author__not_in', 								// Author												
  				'cat', 'category_name', 'category__and', 'category__in', 'category__not_in', 			// Category
@@ -123,7 +139,7 @@ function vcat_geo_enqueue_google_maps_scripts() {
     
     wp_enqueue_script(
     	'vcat-geo-map-js',
-    	plugins_url('/scripts/js/functions.js', __FILE__)
+    	plugins_url('/scripts/functions.js', __FILE__)
     );
     
     wp_enqueue_style(
@@ -149,7 +165,9 @@ function vcat_geo_display_posts_at_google_maps( $atts ){
 		get_option( 'vcat_geo_center', $VCAT_MAP_DEFAULTS[ 'center' ] ),
 		get_option( 'vcat_geo_zoom', $VCAT_MAP_DEFAULTS[ 'zoom' ] ),
 		get_option( 'vcat_geo_target', $VCAT_MAP_DEFAULTS[ 'target' ] ),
-		get_option( 'vcat_geo_align', $VCAT_MAP_DEFAULTS[ 'align' ] )
+		get_option( 'vcat_geo_align', $VCAT_MAP_DEFAULTS[ 'align' ] ),
+		get_option( 'vcat_geo_margin', $VCAT_MAP_DEFAULTS[ 'margin' ] ),
+		get_option( 'vcat_geo_padding', $VCAT_MAP_DEFAULTS[ 'padding' ] )
 	);	
 		
 	extract( shortcode_atts( array(
@@ -159,7 +177,9 @@ function vcat_geo_display_posts_at_google_maps( $atts ){
 		'center_lng' => $options['center_lng'],
 		'target' => $options['target'],
 		'zoom' => $options['zoom'],
-		'align' => $options['align']
+		'align' => $options['align'],
+		'margin' => $options['margin'],
+		'padding' => $options['padding']
 	), $atts ) );
 
 	if (isset($atts['center'])&&$atts['center']!='dynamic') {
@@ -178,7 +198,7 @@ function vcat_geo_display_posts_at_google_maps( $atts ){
 	}
 
 	return "
-		<div id='map_canvas' style='width:" . $width . ";height:" . $height .";' class='align-" . $align . "'></div>
+		<div id='map_canvas' style='width:" . $width . "; margin:" . $margin . "; padding:" . $padding . "; height:" . $height ."; class='align-" . $align . "'></div>
 		<script type='text/javascript'>
 			jQuery(document).ready(function(){
 				vcatInitialize(" . $center_lat . ", " . $center_lng . ", " . $zoom . ", '');
@@ -216,6 +236,7 @@ function vcat_geo_filter_check(&$filter)
  * @param $atts	attributes which can be given to the extraction from the shortcode,
  */
 function vcat_geo_display_posts_at_google_maps_mini( $atts ){
+
 	global $post, $VCAT_MINI_MAP_DEFAULTS;
 	$options = array_merge(
 		get_option( 'vcat_geo_mini_width', $VCAT_MINI_MAP_DEFAULTS[ 'width' ] ),
@@ -224,6 +245,8 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
 		get_option( 'vcat_geo_mini_target', $VCAT_MINI_MAP_DEFAULTS[ 'target' ] ),
 		get_option( 'vcat_geo_mini_align', $VCAT_MINI_MAP_DEFAULTS[ 'align' ] ),
 		get_option( 'vcat_geo_mini_color', $VCAT_MINI_MAP_DEFAULTS[ 'color' ])
+		//get_option( 'vcat_geo_margin', $VCAT_MAP_DEFAULTS[ 'margin' ] ),
+		//get_option( 'vcat_geo_padding', $VCAT_MAP_DEFAULTS[ 'padding' ] )
 	);	
 
 	extract( shortcode_atts( array(
@@ -231,7 +254,9 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
 		'height' => $options['height'],
 		'target' => $options['target'],
 		'zoom' => $options['zoom'],
-		'align' => $options['align']
+		'align' => $options['align'],
+		'margin' => $options['margin'],
+		'padding' => $options['padding']
 	), $atts ) );
 
 	//13.11.13 aus der extraction genommen, da sie nicht veränderbar sein soll...
@@ -252,15 +277,27 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
 		}
 	}
 
-	return "
-		<div id='map_canvas".$post->post_id."' style='width:" . $width . ";height:" . $height .";' class='align-" . $align . "'></div>
-		<script type='text/javascript'>
-			jQuery(document).ready(function(){
-				vcatInitialize(" . $center_lat . ", " . $center_lng . ", " . $zoom . ", " . $post->post_id . ");
-				vcatAddMarker(" . $center_lat . ", " . $center_lng . ", '" . $post_address . "', '" . $post_title . "', '" . $post_link . "', '" . $image_url . "', '" . $target . "' );
-			});
-		</script>
-	";
+    if(is_admin()){
+        return "
+            <div id='map_canvas".$post->post_id."' style='width:" . $width . "; margin:" . $margin . "; padding:" . $padding . "; height:" . $height ."; class='align-" . $align . "'></div>
+            <script type='text/javascript'>
+                jQuery(document).ready(function(){
+                    vcatInitializeBackend(" . $center_lat . ", " . $center_lng . ", " . $zoom . ", " . $post->post_id . ");
+
+                });
+            </script>
+	    ";
+    } else {
+        return "
+            <div id='map_canvas".$post->post_id."' style='width:" . $width . "; margin:" . $margin . "; padding:" . $padding . "; height:" . $height ."; class='align-" . $align . "'></div>
+            <script type='text/javascript'>
+                jQuery(document).ready(function(){
+                    vcatInitialize(" . $center_lat . ", " . $center_lng . ", " . $zoom . ", " . $post->post_id . ");
+                    vcatAddMarker(" . $center_lat . ", " . $center_lng . ", '" . $post_address . "', '" . $post_title . "', '" . $post_link . "', '" . $image_url . "', '" . $target . "' );
+                });
+            </script>
+	    ";
+    }
 }	
 
 /**
@@ -279,10 +316,32 @@ function vcat_geo_get_lat_lng_by_address( $address ) {
 	$str = file_get_contents( $req );
 	
 	$xml = new SimpleXMLElement( $str );
-	
+
 	$lat= floatval( $xml->result[0]->geometry->location->lat );
 	$lng = floatval( $xml->result[0]->geometry->location->lng );
 	return array('lat'=>$lat, 'lng'=>$lng);
+}
+
+/** dadz 21042015 add function 
+ * sends an request to the google-api to get the address for an given latitude and longitude 
+ * converts it to str and xml to extract the address
+ *
+ * @param $latlng the given latitude and longitude
+ * @return array address
+ */
+function vcat_geo_get_address_by_lat_lng( $latlng ) {
+	if( $latlng == "" || !isset( $latlng ) || $latlng == null )
+		return array( "", "" , "" );
+	$req = 'http://maps.googleapis.com/maps/api/geocode/xml?latlng=' . $latlng. '&sensor=false';
+	
+	$str = file_get_contents( $req );
+	$xml = new SimpleXMLElement( $str );
+	
+	$str = explode(",",$xml->result[0]->formatted_address)[0];
+	$plz = explode(" ",explode(",",$xml->result[0]->formatted_address)[1])[1];
+	$ort = explode(" ",explode(",",$xml->result[0]->formatted_address)[1])[2];
+	
+	return array('ort'=>$ort, 'plz'=>$plz, 'str'=>$str);
 }
 
 /**

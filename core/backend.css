@@ -62,3 +62,18 @@
 #vcat-plugins-list img.vcat-plugin-image {
 	width:500px;
 }
+
+/* dadz 22042015 */
+.wrap.vcat-edulabs h2:before {
+	content: '';
+	background-image: url('images/favicon-32.png');
+  	height: 32px;
+  	width: 32px;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font: normal 29px/1 'dashicons';
+    vertical-align: middle;
+    margin-right: 0.3em;
+}
+
+

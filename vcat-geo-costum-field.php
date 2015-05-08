@@ -8,10 +8,22 @@ function vcat_geo_custom_fields_init()
     	'vcat_geo_meta_css',
     	plugins_url( '/styles/meta.css', __FILE__ )
 	);
+	/* dadz 24042015 */
+	wp_enqueue_script(
+		'google-maps-api-js',
+		'http://maps.google.com/maps/api/js?sensor=false',
+		array('jquery'),
+		false
+	);
+
+	wp_enqueue_script(
+		'vcat-geo-map-js',
+		plugins_url('/scripts/functions.js', __FILE__)
+	);
  
-    foreach (array('post','page') as $type)
+    foreach( array('post','page') as $type )
     {
-        add_meta_box('vcat_geo_custom_fields_meta', __('VCAT Geo Daten','vcgmapsatposts'), 'vcat_geo_custom_fields_setup', $type, 'normal', 'high');
+        add_meta_box( 'vcat_geo_custom_fields_meta', __('VCAT Geo Data','vcgmapsatposts'), 'vcat_geo_custom_fields_setup', $type, 'normal', 'high' );
     }
 } 
 
@@ -28,9 +40,8 @@ function vcat_geo_custom_fields_setup()
 	
     // including the actual, seeable meta box
     include( plugin_dir_path( __FILE__ ) . 'custom/meta.php' );
-
-    // create a custom nonce for submit verification later
-    echo '<input type="hidden" name="vcat_custom_fields_nonce" value="' . wp_create_nonce(__FILE__) . '" />';
+	
+	echo '<input type="hidden" name="vcat_custom_fields_nonce" value="' . wp_create_nonce( __FILE__ ) . '" />';
 }
   
 /**
@@ -39,7 +50,6 @@ function vcat_geo_custom_fields_setup()
  * @param $post_id	the ID of the post to save
  */
 function vcat_geo_custom_fields_save( $post_id ) {
-
     if( !current_user_can( ( $_POST['post_type'] == 'page' ) ? 'edit_page' : 'edit_post', $post_id ) )
     	return $post_id;
       
@@ -48,7 +58,14 @@ function vcat_geo_custom_fields_save( $post_id ) {
 	if( $vcat_edit_type == "custom_fields" ) {
 	    if( !wp_verify_nonce( $_POST[ 'vcat_custom_fields_nonce' ], __FILE__ ) )
 	    	return $post_id;
-	    $new_data = $_POST[ '_vcat_custom_fields' ];
+
+
+		// dadz 21042015 latlng abfangen
+		if( empty( $_POST[ 'location' ] ) ){
+			$new_data = $_POST[ '_vcat_custom_fields' ];	
+		} else {
+			$new_data = $_POST[ 'location' ];
+		}
 	} elseif( $vcat_edit_type == "quick_edit" ) {
 	    if ( !wp_verify_nonce( $_POST[ 'vcat_quickedit_field_nonce' ], 'vcat' . $post_id ) )
 	    	return $post_id;

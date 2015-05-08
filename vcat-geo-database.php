@@ -53,12 +53,12 @@ function vcat_geo_install_data( $data ) {
  	global $wpdb;
 	global $post;
  	global $VCAT_GEO_PI_TABLE ;
-	
+
 	ob_start();
-	var_dump(	$data	);
+	//var_dump(	$data	);
 	$contents = ob_get_contents();
 	ob_end_clean();
-	error_log($contents);
+	//error_log($contents);
 	
  	require_once( ABSPATH . 'wp-config.php');
 	
@@ -76,16 +76,27 @@ function vcat_geo_install_data( $data ) {
 			'ort' => $current->post->ort
 		);
   	}
-    
-	if( !is_null( $data['ort']||!is_null($data['plz']) ) ) {// atleast ort or plz has to exist
+
+	if( !is_null( $data['ort']||!is_null($data['plz']) ) ) {
+	// atleast ort or plz has to exist
 		$latlng = vcat_geo_get_lat_lng_by_address( $data['str']." ".$data['plz']." ".$data['ort'] );
 	}  
+	// dadz 21042015 check lat and lng
+	if( !is_null( $data['lat']) && !is_null( $data['lng'])){
+		$address = vcat_geo_get_address_by_lat_lng($data['lat'].",".$data['lng']);
+	}
 	
+	// dadz 21042015
     if( $current_data ) { // latlng data allready exist
         if( is_null( $data ) || (count($data)==1 && !is_null($data["color"]) ) )  { // data have to be removed
 			vcat_geo_delete_data();
 		} else  { // update existing entry
-        	$data = array_merge( $data, $latlng );
+        	if( is_null($address) ){
+        		$data = array_merge( $data, $latlng );	
+        	} else {
+        		$data = array_merge( $data, $address );
+        	}
+        	
  		
 		   	$update = $wpdb->update(
 		   		$VCAT_GEO_PI_TABLE,
@@ -100,9 +111,16 @@ function vcat_geo_install_data( $data ) {
 				return true;
         }
     } elseif( !is_null( $data ) ) { // new entry wanted
-        $data = array_merge( $data, $latlng );
-		$data[ 'post_id' ] = ( $post->post_type == "revision" && isset( $current->post->lat ) ) ? $current->post->post_id : $post->ID;
- 		$wpdb->insert( $VCAT_GEO_PI_TABLE , $data );
+    // dadz 21042015 check if location button or save button
+ 		if( !is_null($address) ){
+ 			$data = array_merge( $data, $address );
+			$data[ 'post_id' ] = ( $post->post_type == "revision" && isset( $current->post->lat ) ) ? $current->post->post_id : $post->ID;
+ 			$wpdb->insert( $VCAT_GEO_PI_TABLE , $data );
+ 		} else {
+ 			$data = array_merge( $data, $latlng );
+			$data[ 'post_id' ] = ( $post->post_type == "revision" && isset( $current->post->lat ) ) ? $current->post->post_id : $post->ID;
+ 			$wpdb->insert( $VCAT_GEO_PI_TABLE , $data );
+ 		}  
     } 
 }
 

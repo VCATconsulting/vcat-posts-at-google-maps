@@ -8,7 +8,7 @@ function vcat_geo_add_settings()
 {
 	$hdl = vcat_core_create_main_options_page();
     	
-    add_submenu_page( $hdl, __('Geo Map Optionen','vcgmapsatposts'), __('Geo Map Optionen','vcgmapsatposts'), 'manage_options', 'vcat_geo_settings', 'vcat_geo_map_page' );
+    add_submenu_page( $hdl, __('Geo Map Options','vcgmapsatposts'), __('Geo Map Options','vcgmapsatposts'), 'manage_options', 'vcat_geo_settings', 'vcat_geo_map_page' );
 		
 	add_action( 'admin_init', 'vcat_geo_register_settings' );
 	
@@ -21,7 +21,7 @@ function vcat_geo_add_settings()
 	
 	wp_enqueue_script(
     	'zoom-slider-js',
-    	plugins_url('/scripts/js/zoom-slider.js', __FILE__)
+    	plugins_url('/scripts/zoom-slider.js', __FILE__)
     );
 
 	wp_enqueue_style(
@@ -34,7 +34,7 @@ function vcat_geo_add_settings()
  * adds a link to the settings page within the plugins list
  */
 function vcat_geo_add_plugin_settings_link( $links ) {
-	$links[ 'settings' ] = __('<a href="admin.php?page=vcat_geo_settings">Einstellungen</a>','vcgmapsatposts'); 
+	$links[ 'settings' ] = '<a href="admin.php?page=vcat_geo_settings">' . __('Settings','vcgmapsatposts') . '</a>'; 
 	return $links; 
 }
 
@@ -55,7 +55,7 @@ function vcat_geo_add_plugins_list_info( $list ) {
  */
 function vcat_geo_map_page()
 {
-	vcat_core_backend_header( __('GEO-Plugin Einstellungen','vcgmapsatposts') );
+	vcat_core_backend_header( __('GEO-Plugin Settings','vcgmapsatposts'), 'vcat_geo_settings' );
 
 	echo '<form method="post" action="options.php">';
 		settings_fields( 'vcat_geo_settings' ); 
@@ -79,16 +79,20 @@ function vcat_geo_register_settings() {
 	register_setting( 'vcat_geo_settings', 'vcat_geo_target', 'vcat_geo_settings_validate_target'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_align', 'vcat_geo_settings_validate_align'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_color', 'vcat_geo_settings_validate_color'); 
+	register_setting( 'vcat_geo_settings', 'vcat_geo_margin', 'vcat_geo_settings_validate_px');
+	register_setting( 'vcat_geo_settings', 'vcat_geo_padding', 'vcat_geo_settings_validate_px');
 
-	add_settings_section('vcat_geo_map_section', __('Große Karte','vcgmapsatposts'), 'vcat_geo_map_headline', 'vcat_geo');
+	add_settings_section('vcat_geo_map_section', __('Big Map','vcgmapsatposts'), 'vcat_geo_map_headline', 'vcat_geo');
 
-	add_settings_field('vcat_geo_map_width', __('Breite','vcgmapsatposts'), 'vcat_geo_map_widthbox', 'vcat_geo', 'vcat_geo_map_section');
-	add_settings_field('vcat_geo_map_height', __('Höhe','vcgmapsatposts'), 'vcat_geo_map_heightbox', 'vcat_geo', 'vcat_geo_map_section');
-	add_settings_field('vcat_geo_map_center', __('Zentrum','vcgmapsatposts'), 'vcat_geo_map_centerbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_width', __('Width','vcgmapsatposts'), 'vcat_geo_map_widthbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_height', __('Height','vcgmapsatposts'), 'vcat_geo_map_heightbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_center', __('Center','vcgmapsatposts'), 'vcat_geo_map_centerbox', 'vcat_geo', 'vcat_geo_map_section');
 	add_settings_field('vcat_geo_map_zoom', __('Zoom','vcgmapsatposts'), 'vcat_geo_map_zoombox', 'vcat_geo', 'vcat_geo_map_section');
-	add_settings_field('vcat_geo_map_target', __('Ziel','vcgmapsatposts'), 'vcat_geo_map_targetbox', 'vcat_geo', 'vcat_geo_map_section');
-	add_settings_field('vcat_geo_map_align', __('Ausrichtung','vcgmapsatposts'), 'vcat_geo_map_alignbox', 'vcat_geo', 'vcat_geo_map_section');
-	add_settings_field('vcat_geo_map_color', __('Farbe','vcgmapsatposts'), 'vcat_geo_map_colorbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_target', __('Target','vcgmapsatposts'), 'vcat_geo_map_targetbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_align', __('Alignment','vcgmapsatposts'), 'vcat_geo_map_alignbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_color', __('Color','vcgmapsatposts'), 'vcat_geo_map_colorbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_margin', __('Margin','vcgmapsatposts'), 'vcat_geo_map_marginbox', 'vcat_geo', 'vcat_geo_map_section');
+	add_settings_field('vcat_geo_map_padding', __('Padding','vcgmapsatposts'), 'vcat_geo_map_paddingbox', 'vcat_geo', 'vcat_geo_map_section');
 	
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_width', 'vcat_geo_settings_validate_px_percent_mini'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_height', 'vcat_geo_settings_validate_px_mini'); 
@@ -97,22 +101,23 @@ function vcat_geo_register_settings() {
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_align', 'vcat_geo_settings_validate_align_mini'); 
 	register_setting( 'vcat_geo_settings', 'vcat_geo_mini_color', 'vcat_geo_settings_validate_color_mini'); 
 
-	add_settings_section('vcat_geo_mini_map_section', __('Kleine Karte','vcgmapsatposts'), 'vcat_geo_mini_map_headline', 'vcat_geo_mini');
+	add_settings_section('vcat_geo_mini_map_section', __('Mini Map','vcgmapsatposts'), 'vcat_geo_mini_map_headline', 'vcat_geo_mini');
 
-	add_settings_field('vcat_geo_mini_map_width', __('Breite','vcgmapsatposts'), 'vcat_geo_mini_map_widthbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
-	add_settings_field('vcat_geo_mini_map_height', __('Höhe','vcgmapsatposts'), 'vcat_geo_mini_map_heightbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_mini_map_width', __('Width','vcgmapsatposts'), 'vcat_geo_mini_map_widthbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_mini_map_height', __('Height','vcgmapsatposts'), 'vcat_geo_mini_map_heightbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
 	add_settings_field('vcat_geo_mini_map_zoom', __('Zoom','vcgmapsatposts'), 'vcat_geo_mini_map_zoombox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
-	add_settings_field('vcat_geo_mini_map_target', __('Ziel','vcgmapsatposts'), 'vcat_geo_mini_map_targetbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
-	add_settings_field('vcat_geo_mini_map_align', __('Ausrichtung','vcgmapsatposts'), 'vcat_geo_mini_map_alignbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
-	add_settings_field('vcat_geo_mini_map_color', __('Farbe','vcgmapsatposts'), 'vcat_geo_mini_map_colorbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_mini_map_target', __('Target','vcgmapsatposts'), 'vcat_geo_mini_map_targetbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_mini_map_align', __('Alignment','vcgmapsatposts'), 'vcat_geo_mini_map_alignbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_mini_map_color', __('Color','vcgmapsatposts'), 'vcat_geo_mini_map_colorbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_map_margin', __('Margin','vcgmapsatposts'), 'vcat_geo_map_marginbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
+	add_settings_field('vcat_geo_map_padding', __('Padding','vcgmapsatposts'), 'vcat_geo_map_paddingbox', 'vcat_geo_mini', 'vcat_geo_mini_map_section');
 }
 
 /**
  * displays the description for the first (big map) settings section
  */
 function vcat_geo_map_headline() {
-echo __('Hier können sie die Standardeinstellungen für die große Google Map Karte einstellen, Höhe und Breite bestimmen die Größe der Karte, 
-	  während Zentrum und Zoom die Standardausrichtung der Karte bestimmen. Das Ziel bestimmt wohin die Links der verschiedenen Marker führt. ','vcgmapsatposts');
+echo __('Here you can edit the standard settings for the Big Map. The width and height steer the size of the map. The center and zoom can be used to change the standard alignment. The target sets the attribute of the anchor-tag.','vcgmapsatposts');
 }
 
 /**
@@ -123,11 +128,11 @@ global $VCAT_MAP_DEFAULTS;
 $width = get_option('vcat_geo_width', $VCAT_MAP_DEFAULTS['width']);
 
 echo "<input id='width' name='vcat_geo_width[width]' type='text' value='".$width['width']."' class='regular-text ".((isset($width['fail'])) ? "fail" : "")."'/>";
-echo __("<p class='description'> Nur Pixel oder Prozentangaben! </p>",'vcgmapsatposts');
+echo '<p class="description">' . __( 'Values in pixel (px) and percentage (%) allowed, only!','vcgmapsatposts') . '</p>';
 
 if(isset($width['fail'])){
 	unset($width['fail']);
-update_option( 'vcat_geo_width', $width );
+	update_option( 'vcat_geo_width', $width );
 }
 }
 
@@ -139,7 +144,7 @@ global $VCAT_MAP_DEFAULTS;
 $height = get_option('vcat_geo_height', $VCAT_MAP_DEFAULTS['height']);
 
 echo "<input id='height' name='vcat_geo_height[height]' type='text' value='".$height['height']."' class='regular-text ".((isset($height['fail'])) ? "fail" : "")."'/>";
-echo __("<p class='description'> Nur Pixelangaben! </p>",'vcgmapsatposts');
+echo '<p class="description">' . __('Values in pixel (px) allowed, only!','vcgmapsatposts') . '</p>';
 
 if(isset($height['fail'])){
 	unset($height['fail']);
@@ -154,12 +159,10 @@ function vcat_geo_map_centerbox() {
 global $VCAT_MAP_DEFAULTS; 	
 $center = get_option('vcat_geo_center', $VCAT_MAP_DEFAULTS['center']);
 
-echo "<input id='center' name='vcat_geo_center[center]' type='text' value='".$center['center']."' class='regular-text ".((isset($center['fail'])) ? "fail" : "")."' ".(($center['dynamic']=='TRUE')?"readonly":"")."/>";
-echo __("<p class='description'> Adressen dürfen neben Buchstaben(inkl. ä,ö,ü,ß) und Zahlen nur Bindestriche und Punkte enthalten. 
-							  Multiple Hausnummern(z.B. 26-53) und Begriffszusätze(z.B. Medienhaus) werden zudem von der Google-API ignoriert!
-							  Und für ein möglichst genaues Ergebnis sollten sie diese bei eigenen Adressen weglassen.</p>",'vcgmapsatposts');
-echo "<label><input type='checkbox' value='TRUE' name='vcat_geo_center[dynamic]' ".(($center['dynamic']=='TRUE')?"checked":"").__("><span> Dynamisch</span></label>", "vcgmapsatposts");
-echo __("<p class='description'> Wenn sie Zentrum auf Dynamisch setzen, werden Zentrum und Zoom automatisch berechnet, so das alle Marker im sichtbaren Bereich liegen. </p>",'vcgmapsatposts');
+echo '<input id="center" name="vcat_geo_center[center]" type="text" value="' . $center['center'] . '" class="regular-text' . ( ( isset( $center['fail'] ) ) ? " fail" : "") . '"' . ( ( $center['dynamic']=='TRUE' ) ? ' readonly' : '' ) . '/>';
+echo '<p class="description">' . __('Address strings can consist of letters, numbers, hivens, and dots. A range of numbers (e.g. 26-53) and additional information (e.g. 3rd floor) are ignored by Google-API! They should be left at address strings.', 'vcgmapsatposts') . '</p>';
+echo "<label><input type='checkbox' value='TRUE' name='vcat_geo_center[dynamic]' ".(($center['dynamic']=='TRUE')?"checked":"") . '><span>' . __("dynamic", "vcgmapsatposts") . '</span></label>';
+echo '<p class="description">' . __('If the center is set to dynamic, the center and zoom is calculated automatically. Every pin is displayed on the map, finally.','vcgmapsatposts') . '</p>';
 							  
 if(isset($center['fail'])){
 	unset($center['fail']);
@@ -193,8 +196,8 @@ function vcat_geo_map_targetbox() {
 global $VCAT_MAP_DEFAULTS; 	
 $target = get_option('vcat_geo_target', $VCAT_MAP_DEFAULTS['target']);
 
-echo "<label><input type='radio' name='vcat_geo_target[target]' value='blank' ".(($target['target']=='blank')? "checked": "").__(" ><span> Neues Fenster/Neuer Tab </span></label><br>
-	  <label><input type='radio' name='vcat_geo_target[target]' value='top' ",'vcgmapsatposts').(($target['target']=='top')? "checked": "").__("><span> Aktives Fenster </span></label>",'vcgmapsatposts');
+echo '<label><input type="radio" name="vcat_geo_target[target]" value="blank"' . ( ( $target['target']=='blank' ) ? ' checked': '') . '><span>' . __( 'New Window/New Tab', 'vcgmapsatposts' ) . '</span></label><br>';
+echo '<label><input type="radio" name="vcat_geo_target[target]" value="top"' . ( ( $target['target']=='top' ) ? ' checked' : '' ) . '><span>' . __( 'Active Window', 'vcgmapsatposts' ) . '</span></label>';
 }
 
 /**
@@ -204,57 +207,47 @@ function vcat_geo_map_alignbox() {
 	global $VCAT_MAP_DEFAULTS; 	
 	$align = get_option( 'vcat_geo_align', $VCAT_MAP_DEFAULTS[ 'align' ]);
 	
-	echo "<label><input type='radio' name='vcat_geo_align[align]' value='left' ".(($align['align']=='left')? "checked": "").__(" ><span> links </span></label><br>
-	  	  <label><input type='radio' name='vcat_geo_align[align]' value='right' ",'vcgmapsatposts').(($align['align']=='right')? "checked": "").__("><span> rechts </span></label>",'vcgmapsatposts');
+	echo '<label><input type="radio" name="vcat_geo_align[align]" value="left"' . ( ( $align['align']=='left' ) ? ' checked' : '' ) . '><span>' . __( 'left', 'vcgmapsatposts' ) . '</span></label><br>';
+	echo '<label><input type="radio" name="vcat_geo_align[align]" value="right"' . ( ( $align['align']=='right' ) ? ' checked' : '' ) . '><span>' . __( 'right', 'vcgmapsatposts' ) . '</span></label>';
 }
 
 /**
  * displays the dropdown menu for the pin colors of the big map
  */
 function vcat_geo_map_colorbox() {
-	global $VCAT_MAP_DEFAULTS; 	
+	global $VCAT_MAP_DEFAULTS, $VCAT_PIN_COLORS;
+ 	
 	$color = get_option( 'vcat_geo_color', $VCAT_MAP_DEFAULTS['color']);
 	
-	echo __("  
-	<table><tr><td style='padding:0px; padding-right: 10px;'>	
-	Beitr&auml;ge:
+	echo '<table><tr><td style="padding:0px; padding-right: 10px;">' . __( 'Posts', 'vcgmapsatposts' ) . ':</td>';
+	echo '<td style="padding:0px;"><select name="vcat_geo_color[postcolor]">';
 	
-	</td><td style='padding:0px;'>
-	<select name='vcat_geo_color[postcolor]'>
-	  <option ", 'vcgmapsatposts').(($color['postcolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='red')? "selected": "").__(" value='red'>Rot</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='green')? "selected": "").__(" value='green'>Grün</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
-    </select>
+	foreach( $VCAT_PIN_COLORS as $colkey => $colval ) {
+	  echo '<option value="' . $colkey . '"' . selected( $color['postcolor'], $colkey, false ) . '>' . $colval . '</option>';
+	}
+    
+	echo '</select></td></tr><tr><td style="padding:0px; padding-right: 10px;">' . __( 'Pages', 'vcgmapsatposts' ) . ':</td>';
+	echo '<td style="padding:0px;"><select name="vcat_geo_color[pagecolor]">';
 	
-	</td></tr><tr><td style='padding:0px; padding-right: 10px;'>	
-	Seiten:
+	foreach( $VCAT_PIN_COLORS as $colkey => $colval ) {
+	  echo '<option value="' . $colkey . '"' . selected( $color['pagecolor'], $colkey, false ) . '>' . $colval . '</option>';
+	}
 	
-	</td><td style='padding:0px;'>
-	<select name='vcat_geo_color[pagecolor]'>
-	  <option ", 'vcgmapsatposts').(($color['pagecolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='red')? "selected": "").__(" value='red'>Rot</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='green')? "selected": "").__(" value='green'>Grün</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
-    </select>
+	echo '</select></td></tr></table>';
+}
+
+function vcat_geo_map_marginbox() {
+	global $VCAT_MAP_DEFAULTS; 	
+	$margin = get_option( 'vcat_geo_margin', $VCAT_MAP_DEFAULTS[ 'margin' ]);
 	
-	</td></tr></table>", 'vcgmapsatposts');
+	echo "<label><input type='text' name='vcat_geo_margin[margin]' value='".$margin['margin']."'/></label>";
+}
+
+function vcat_geo_map_paddingbox() {
+	global $VCAT_MAP_DEFAULTS; 	
+	$padding = get_option( 'vcat_geo_padding', $VCAT_MAP_DEFAULTS[ 'padding' ]);
+	
+	echo "<label><input type='text' name='vcat_geo_padding[padding]' value='".$padding['padding']."'/></label>";
 }
 
 /**
@@ -379,8 +372,7 @@ function vcat_geo_settings_validate_color( $input ) {
  * displays the description for the second(small map) settings section
  */
 function vcat_geo_mini_map_headline() {
-echo __('Hier können sie die Standardeinstellungen für die kleinen Google Map Karten einstellen, Höhe und Breite bestimmen die Größe der Karte, 
-	  die Standardausrichtung bildet der jeweilige Post auf der die Minimap zusehen ist zusammen mit dem Zoom. Das Ziel bestimmt wohin die Links der verschiedenen Marker führt.','vcgmapsatposts');
+	echo __('Here you can edit the standard settings for the Mini Map. The width and height steer the size of the map. The zoom can be used to change the standard alignment. The target sets the attribute of the anchor-tag.','vcgmapsatposts');
 }
 
 /**
@@ -391,7 +383,7 @@ global $VCAT_MINI_MAP_DEFAULTS;
 $width = get_option('vcat_geo_mini_width', $VCAT_MINI_MAP_DEFAULTS['width']);
 
 echo "<input id='width' name='vcat_geo_mini_width[width]' type='text' value='".$width['width']."' class='regular-text ".((isset($width['fail'])) ? "fail" : "")."'/>";
-echo __("<p class='description'> Nur Pixel oder Prozentangaben! </p>",'vcgmapsatposts');
+echo '<p class="description">' . __( 'Values in pixel (px) and percentage (%) allowed, only!','vcgmapsatposts') . '</p>';
 
 if(isset($width['fail'])){
 	unset($width['fail']);
@@ -407,7 +399,7 @@ global $VCAT_MINI_MAP_DEFAULTS;
 $height = get_option('vcat_geo_mini_height', $VCAT_MINI_MAP_DEFAULTS['height']);
 
 echo "<input id='height' name='vcat_geo_mini_height[height]' type='text' value='".$height['height']."' class='regular-text ".((isset($height['fail'])) ? "fail" : "")."'/>";
-echo __("<p class='description'> Nur Pixelangaben! </p>",'vcgmapsatposts');
+echo '<p class="description">' . __( 'Values in pixel (px) allowed, only!','vcgmapsatposts') . '</p>';
 
 if(isset($height['fail'])){
 	unset($height['fail']);
@@ -422,10 +414,7 @@ function vcat_geo_mini_map_zoombox() {
 global $VCAT_MINI_MAP_DEFAULTS; 	
 $zoom = get_option('vcat_geo_mini_zoom', $VCAT_MINI_MAP_DEFAULTS['zoom']);
 
-//echo "<input id='zoom' name='vcat_geo_mini_zoom[zoom]' type='text' value='".$zoom['zoom']."' class='regular-text ".((isset($zoom['fail'])) ? "fail" : "")."'/>";
-
 echo "<div id='mini-zoom-slider'></div><input id='mini_zoom' name='vcat_geo_mini_zoom[zoom]' value='".$zoom['zoom']."' type='text' readonly/>";
-
 
 if(isset($zoom['fail'])){
 	unset($zoom['fail']);
@@ -440,8 +429,8 @@ function vcat_geo_mini_map_targetbox() {
 global $VCAT_MINI_MAP_DEFAULTS; 	
 $target = get_option('vcat_geo_mini_target', $VCAT_MINI_MAP_DEFAULTS['target']);
 
-echo "<label><input type='radio' name='vcat_geo_mini_target[target]' value='blank' ".(($target['target']=='blank')? "checked": "").__(" ><span> Neues Fenster/Neuer Tab </span></label><br>
-	  <label><input type='radio' name='vcat_geo_mini_target[target]' value='top' ",'vcgmapsatposts').(($target['target']=='top')? "checked": "").__("><span> Aktives Fenster </span></label>",'vcgmapsatposts');
+echo '<label><input type="radio" name="vcat_geo_mini_target[target]" value="blank"' . ( ( $target['target']=='blank' ) ? ' checked' : '' ) . '><span>' . __( 'New Window/New Tab', 'vcgmapsatposts' ) . '</span></label><br>';
+echo '<label><input type="radio" name="vcat_geo_mini_target[target]" value="top"' . ( ( $target['target']=='top' ) ? ' checked' : '' ) . '><span>' . __( 'Active Window', 'vcgmapsatposts' ) . '</span></label>';
 }
 
 /**
@@ -451,57 +440,33 @@ function vcat_geo_mini_map_alignbox() {
 	global $VCAT_MAP_DEFAULTS; 	
 	$align = get_option( 'vcat_geo_mini_align', $VCAT_MAP_DEFAULTS[ 'align' ] );
 
-	echo "<label><input type='radio' name='vcat_geo_mini_align[align]' value='left' ".(($align['align']=='left')? "checked": "").__(" ><span> links </span></label><br>
-	  	  <label><input type='radio' name='vcat_geo_mini_align[align]' value='right' ",'vcgmapsatposts').(($align['align']=='right')? "checked": "").__("><span> rechts </span></label>",'vcgmapsatposts');
+	echo '<label><input type="radio" name="vcat_geo_mini_align[align]" value="left"' . ( ( $align['align']=='left' ) ? ' checked' : '' ) . '><span>' . __( 'left', 'vcgmapsatposts' ) . '</span></label><br>';
+	echo '<label><input type="radio" name="vcat_geo_mini_align[align]" value="right"' . ( ( $align['align']=='right' ) ? ' checked' : '' ) . '><span>' . __( 'right', 'vcgmapsatposts' ) . '</span></label>';
 }
 
 /**
  * displays the dropdown menu for the pin colors of the big map
  */
 function vcat_geo_mini_map_colorbox() {
-	global $VCAT_MINI_MAP_DEFAULTS; 	
+	global $VCAT_MINI_MAP_DEFAULTS, $VCAT_PIN_COLORS;
+ 	
 	$color = get_option( 'vcat_geo_mini_color', $VCAT_MINI_MAP_DEFAULTS[ 'color' ]);
 
-	echo __("  
-	<table><tr><td style='padding:0px; padding-right: 18px;'>	
-	Beitrag:
+	echo '<table><tr><td style="padding:0px; padding-right: 18px;">' . __( 'Post', 'vcgmapsatposts' ) . ':</td>';
+	echo '<td style="padding:0px;"><select name="vcat_geo_mini_color[postcolor]">';
 	
-	</td><td style='padding:0px;'>
-	<select name='vcat_geo_mini_color[postcolor]'>
-	  <option ", 'vcgmapsatposts').(($color['postcolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='red')? "selected": "").__(" value='red'>Rot</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='green')? "selected": "").__(" value='green'>Grün</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
-      <option ", 'vcgmapsatposts').(($color['postcolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
-    </select>
+	foreach( $VCAT_PIN_COLORS as $colkey => $colval ) {
+	  echo '<option value="' . $colkey . '"' . selected( $color['postcolor'], $colkey, false ) . '>' . $colval . '</option>';
+	}
+
+	echo '</select></td></tr><tr><td style="padding:0px; padding-right: 18px;">' . __( 'Page', 'vcgmapsatposts' ) . ':</td>';
+	echo '<td style="padding:0px;"><select name="vcat_geo_mini_color[pagecolor]">';
+
+	foreach( $VCAT_PIN_COLORS as $colkey => $colval ) {
+	  echo '<option value="' . $colkey . '"' . selected( $color['pagecolor'], $colkey, false ) . '>' . $colval . '</option>';
+	}
 	
-	</td></tr><tr><td style='padding:0px; padding-right: 18px;'>	
-	Seite:
-	
-	</td><td style='padding:0px;'>
-	<select name='vcat_geo_mini_color[pagecolor]'>
-	  <option ", 'vcgmapsatposts').(($color['pagecolor']=='blue')? "selected": "").__(" value='blue'>Blau</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='red')? "selected": "").__(" value='red'>Rot</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='yellow')? "selected": "").__(" value='yellow'>Gelb</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='green')? "selected": "").__(" value='green'>Grün</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='orange')? "selected": "").__(" value='orange'>Orange</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='purple')? "selected": "").__(" value='purple'>Lila</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='magenta')? "selected": "").__(" value='magenta'>Magenta</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='cyan')? "selected": "").__(" value='cyan'>Cyan</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='pink')? "selected": "").__(" value='pink'>Rosa</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='brown')? "selected": "").__(" value='brown'>Braun</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='beige')? "selected": "").__(" value='beige'>Beige</option>
-      <option ", 'vcgmapsatposts').(($color['pagecolor']=='gray')? "selected": "").__(" value='gray'>Grau</option>
-    </select>
-	
-	</td></tr></table>", 'vcgmapsatposts');
+    echo '</select></td></tr></table>';
 }
 
 

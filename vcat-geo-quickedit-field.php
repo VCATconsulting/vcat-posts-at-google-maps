@@ -7,7 +7,7 @@
  * @return $columns	the standart columns + 1
  */
 function vcat_geo_add_post_column($columns) {
-    $columns['post_address'] = __('Adresse','vcgmapsatposts');
+    $columns['post_address'] = __('Address','vcgmapsatposts');
     return $columns;
 }
 
@@ -31,7 +31,7 @@ function vcat_geo_add_post_column($columns) {
 			}
 			
 			if( isset( $post->lat ) )
-				echo $post->str . ", " . $post->plz . " " . $post->ort . __("<br> Latitude.: ",'vcgmapsatposts') . $post->lat . __(" / Longitude.: ",'vcgmapsatposts') . $post->lng;
+				echo $post->str . ", " . $post->plz . " " . $post->ort . "<br/>" . __("Latitude",'vcgmapsatposts') . ": " . $post->lat . " / " . __("Longitude",'vcgmapsatposts') . ": " . $post->lng;
 		default:
 			echo '';
     }	
@@ -91,7 +91,7 @@ function vcat_geo_quick_edit_javascript() {
 
     ?>
     <script type="text/javascript">
-    <!--
+    <!-- -->
     /**
  	* javascript function, which inserts the current geo datas into the quick-edit fields
  	* 
@@ -154,9 +154,9 @@ function vcat_geo_expand_quick_edit_link($actions, $post) {
 	$color = $post->color;
 		
     $actions['inline hide-if-no-js'] = '<a href="#" class="editinline" title="';
-    $actions['inline hide-if-no-js'] .= esc_attr( __( 'Edit this item inline' ) ) . '" ';
+    $actions['inline hide-if-no-js'] .= esc_attr( __( 'Edit this item inline', 'vcgmapsatposts' ) ) . '" ';
     $actions['inline hide-if-no-js'] .= " onclick=\"insert_data('{$str}','{$plz}','{$ort}','{$nonce}','{$color}')\">";
-    $actions['inline hide-if-no-js'] .= __( 'Quick&nbsp;Edit' );
+    $actions['inline hide-if-no-js'] .= __( 'Quick-Edit', 'vcgmapsatposts' );
     $actions['inline hide-if-no-js'] .= '</a>';
     return $actions;   
 }

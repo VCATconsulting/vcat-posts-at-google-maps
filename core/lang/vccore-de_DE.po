@@ -1,0 +1,91 @@
+# German translations for PACKAGE package.
+# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#  <wordpress.dziamski.edu.intern.vcat.de@www05.dev.intern.vcat.de>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VCAT EDULABS Plugin Core 1.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-08 09:27+0100\n"
+"PO-Revision-Date: 2015-05-08 10:24+0100\n"
+"Last-Translator: wordpress.dziamski.edu.intern.vcat.de@www05.dev.intern.vcat."
+"de\n"
+"Language-Team: VCAT EDULABS <edulabs@vcat.de>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;__ngettext:1,2;_n:1,2;"
+"__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../sidebar.php:44
+msgid "VCAT EDULABS<br />Feed"
+msgstr "VCAT EDULABS<br />Feed"
+
+#: ../sidebar.php:48
+msgid "VCAT Consulting<br />Feed"
+msgstr "VCAT Consulting<br />Feed"
+
+#: ../sidebar.php:52
+msgid "Follow us!"
+msgstr "Folgen Sie uns!"
+
+#: ../sidebar.php:54
+msgid "VCAT at Facebook"
+msgstr "VCAT bei Facebook"
+
+#: ../sidebar.php:55
+msgid "VCAT at Google+"
+msgstr "VCAT bei Google+"
+
+#: ../sidebar.php:56
+msgid "VCAT at Slideshare"
+msgstr "VCAT bei Slideshare"
+
+#: ../sidebar.php:57
+msgid "VCAT at Twitter"
+msgstr "VCAT bei Twitter"
+
+#: ../sidebar.php:58
+msgid "VCAT at WordPress"
+msgstr "VCAT bei WordPress"
+
+#: ../sidebar.php:59
+msgid "VCAT at Xing"
+msgstr "VCAT bei Xing"
+
+#: ../vcat-core.php:26 ../vcat-core.php:78
+msgid "VCAT EDULABS"
+msgstr "VCAT EDULABS"
+
+#: ../vcat-core.php:43
+msgid "Plugin Overview"
+msgstr "Plugin Übersicht"
+
+#: ../vcat-core.php:45
+msgid "These VCAT EDULABS Plugins are installed in your WordPress:"
+msgstr ""
+"Hier finden Sie eine Liste der in Ihrem WordPress installierten VCAT EDULABS "
+"Plugins:"
+
+#: ../vcat-core.php:51
+msgid "Sorry, no VCAT EDULABS Plugin found!"
+msgstr "Sorry, kein VCAT EDULABS Plugin gefunden!"
+
+#: ../vcat-core.php:52
+msgid ""
+"Visit <a href=\"http://vcat.de/edulabs/\" target=\"_blank\">our website</a> "
+"or find <a href=\"http://profiles.wordpress.org/vcatconsulting/\" target="
+"\"_blank\">our plugins at WordPress</a>..."
+msgstr ""
+"Besuchen Sie <a href=\"http://vcat.de/edulabs/\" target=\"_blank\">unsere "
+"Webseite</a> oder finden Sie <a href=\"http://profiles.wordpress.org/"
+"vcatconsulting/\" target=\"_blank\">unsere Plugins bei WordPress</a>..."

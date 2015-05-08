@@ -14,3 +14,19 @@
 	margin: 10px 0;
 }
 
+.wrapper .wrap-input {
+	display: block;
+	float: left;
+	width: 50%;
+}
+
+.wrapper .wrap-maps {
+	padding: 10px 0;
+}
+
+.vcat-custom-field .save_button {
+	clear: both;
+	margin: 10px;
+	text-align: center;
+}
+
