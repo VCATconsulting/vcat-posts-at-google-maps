@@ -41,22 +41,22 @@ if( !function_exists( 'vcat_core_get_backend_sidebar' ) ) {
 		    	</a>
 		    </div>
 		    <div id="edulabs_feed">
-		    	<h3><a href="http://www.vcat.de/edulabs/feed/" target="_blank"><? _e( 'VCAT EDULABS<br />Feed', 'vccore' ); ?></a></h3>
+		    	<h3><a href="http://www.vcat.de/edulabs/feed/" target="_blank"><?php _e( 'VCAT EDULABS<br />Feed', 'vccore' ); ?></a></h3>
 		    	<?php echo vcat_core_get_cached_feed('http://www.vcat.de/edulabs/feed/', $slug, 'edulabs_feed' ); ?>
 		    </div>
 		    <div id="vcat_feed">
-		    	<h3><a href="http://www.vcat.de/unternehmen/aktuelles.html?type=100" target="_blank"><? _e( 'VCAT Consulting<br />Feed', 'vccore' ); ?></a></h3>
+		    	<h3><a href="http://www.vcat.de/unternehmen/aktuelles.html?type=100" target="_blank"><?php _e( 'VCAT Consulting<br />Feed', 'vccore' ); ?></a></h3>
 		    	<?php echo vcat_core_get_cached_feed('http://www.vcat.de/unternehmen/aktuelles.html?type=100', $slug, 'vcat_feed' ); ?>
 		    </div>
 		    <div id="follow_vcat">
 		    	<h3><?php _e( 'Follow us!', 'vccore') ?></h3>
 		    	<ul>
-		    		<li><a href="https://www.facebook.com/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/facebook-24x24.png" alt="<? _e( 'VCAT at Facebook', 'vccore' ); ?>"/></a></li>
-		    		<li><a href="https://plus.google.com/111862866638114567280/posts" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/google-24x24.png" alt="<? _e( 'VCAT at Google+', 'vccore' ); ?>"/></a></li>
-		    		<li><a href="http://www.slideshare.net/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/slideshare-24x24.png" alt="<? _e( 'VCAT at Slideshare', 'vccore' ); ?>"/></a></li>
-		    		<li><a href="https://twitter.com/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/twitter-24x24.png" alt="<? _e( 'VCAT at Twitter', 'vccore' ); ?>"/></a></li>
-		    		<li><a href="http://profiles.wordpress.org/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/wordpress-24x24.png" alt="<? _e( 'VCAT at WordPress', 'vccore' ); ?>"/></a></li>
-		    		<li><a href="http://www.xing.com/companies/vcatconsultinggmbh" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/xing-24x24.png" alt="<? _e( 'VCAT at Xing', 'vccore' ); ?>"/></a></li>
+		    		<li><a href="https://www.facebook.com/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/facebook-24x24.png" alt="<?php _e( 'VCAT at Facebook', 'vccore' ); ?>"/></a></li>
+		    		<li><a href="https://plus.google.com/111862866638114567280/posts" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/google-24x24.png" alt="<?php _e( 'VCAT at Google+', 'vccore' ); ?>"/></a></li>
+		    		<li><a href="http://www.slideshare.net/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/slideshare-24x24.png" alt="<?php _e( 'VCAT at Slideshare', 'vccore' ); ?>"/></a></li>
+		    		<li><a href="https://twitter.com/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/twitter-24x24.png" alt="<?php _e( 'VCAT at Twitter', 'vccore' ); ?>"/></a></li>
+		    		<li><a href="http://profiles.wordpress.org/VCATconsulting" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/wordpress-24x24.png" alt="<?php _e( 'VCAT at WordPress', 'vccore' ); ?>"/></a></li>
+		    		<li><a href="http://www.xing.com/companies/vcatconsultinggmbh" target="_blank"><img src="<?php echo plugin_dir_url( __FILE__ ); ?>images/social/xing-24x24.png" alt="<?php _e( 'VCAT at Xing', 'vccore' ); ?>"/></a></li>
 		    	</ul>
 		    </div>
 		</div>
