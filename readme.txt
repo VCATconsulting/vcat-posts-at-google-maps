@@ -3,7 +3,7 @@ Contributors: VCATconsulting, nida78
 Tags: EDULABS, VCAT, Geo-Coding, Geo-Location, Google-Maps, Shortcode
 Requires at least: 3.0
 Tested up to: 4.2.2
-Stable tag: 1.6
+Stable tag: 1.6.1
 Donate link: http://www.vcat.de/edulabs/ueber-vcat-edulabs/spenden/
 License: GPLv2
 
@@ -56,6 +56,9 @@ Further information how to use the shortcodes and their available options may be
 
 
 == Changelog ==
+
+= 1.6.1 =
+* bug fix: replace short open tags
 
 = 1.6 =
 * current location can be directly read from the client (browser)
