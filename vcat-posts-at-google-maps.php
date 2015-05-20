@@ -308,7 +308,7 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
  * @return array 	the coordinates
  */
 function vcat_geo_get_lat_lng_by_address( $address ) {
-	if( $address == "" || !isset( $address ) || $address == null ){
+	if( empty($address) ){
 		return false;
 	}
 
@@ -332,7 +332,7 @@ function vcat_geo_get_lat_lng_by_address( $address ) {
  * @return array address
  */
 function vcat_geo_get_address_by_lat_lng( $latlng ) {
-	if( $latlng == "" || !isset( $latlng ) || $latlng == null ) {
+	if( empty($latlng) ) {
 		return false;
 	}
 
