@@ -168,10 +168,10 @@ function vcat_geo_display_posts_at_google_maps( $atts ){
 		get_option( 'vcat_geo_align', $VCAT_MAP_DEFAULTS[ 'align' ] ),
 		get_option( 'vcat_geo_margin', $VCAT_MAP_DEFAULTS[ 'margin' ] ),
 		get_option( 'vcat_geo_padding', $VCAT_MAP_DEFAULTS[ 'padding' ] )
-	);	
+	);
 		
 	extract( shortcode_atts( array(
-		'width' => $options['width'],	
+		'width' => $options['width'],
 		'height' => $options['height'],
 		'center_lat' => $options['center_lat'],
 		'center_lng' => $options['center_lng'],
@@ -187,6 +187,10 @@ function vcat_geo_display_posts_at_google_maps( $atts ){
 		$center_lat = $latlng['lat'];
 		$center_lng = $latlng['lng'];
 		unset($atts['center']);
+	}
+
+	if ( empty( $center_lat ) || empty( $center_lng ) ) {
+		return '';
 	}
 
 	vcat_geo_filter_check($atts);
@@ -263,6 +267,10 @@ function vcat_geo_display_posts_at_google_maps_mini( $atts ){
 	$center_lat = $post->lat;
 	$center_lng = $post->lng;
 
+	if ( empty( $center_lat ) || empty( $center_lng ) ) {
+		return '';
+	}
+
 	$post_title =  $post->post_title;
 	$post_link = get_permalink( $post->post_id );
 	$post_address = $post->str . " " . $post->plz . " " . $post->ort;
@@ -311,7 +319,6 @@ function vcat_geo_get_lat_lng_by_address( $address ) {
 	if( empty($address) ){
 		return false;
 	}
-
 		
 	$req = 'http://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address=' . urlencode( $address );
 	
@@ -399,10 +406,10 @@ function vcat_geo_set_markers( $target, $filter ) {
 		foreach( $map_posts->posts as $post ) {
 				
 			$post_title = $post->post_title;
-			$post_link = get_permalink( $post->post_id );				
+			$post_link = get_permalink( $post->post_id );
 			$post_address = $post->str . " " . $post->plz . " " . $post->ort;
 			$post_lat = $post->lat;
-			$post_lng = $post->lng;			
+			$post_lng = $post->lng;
 			
 			if (isset($post->color)) {
 				$image_url = plugins_url('/images/vcat-'.$post->color.'-dot.png', __FILE__);
@@ -410,7 +417,7 @@ function vcat_geo_set_markers( $target, $filter ) {
 				if( $post->post_type=='page' ) {
 					 $image_url = plugins_url('/images/vcat-'.$pagecolor.'-dot.png', __FILE__);
 				} else {
-					 $image_url = plugins_url('/images/vcat-'.$postcolor.'-dot.png', __FILE__); 
+					 $image_url = plugins_url('/images/vcat-'.$postcolor.'-dot.png', __FILE__);
 				}
 			}
 			
